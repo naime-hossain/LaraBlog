@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
+  use Illuminate\Support\Facades\File;
 class AdminUsersController extends Controller
 {
     /**
@@ -26,7 +28,8 @@ class AdminUsersController extends Controller
     public function create()
     {
         //
-        return view('admin.users.create');
+        $roles=Role::pluck('name','id')->all();
+        return view('admin.users.create',compact('roles'));
     }
 
     /**
@@ -58,7 +61,7 @@ class AdminUsersController extends Controller
         $user=User::create($input);
    if ($user) {
        # code...
-     return back()->with('message', 'User added succefully');
+    return redirect('/admin/users')->with('message', 'User updated added succefully');
    }else{
      return back()->with('message', 'User not added succefully');
    }
@@ -85,6 +88,9 @@ class AdminUsersController extends Controller
     public function edit($id)
     {
         //
+         $roles=Role::pluck('name','id')->all();
+        $user=User::find($id);
+        return view('admin.users.edit',compact('user','roles'));
     }
 
     /**
@@ -97,6 +103,25 @@ class AdminUsersController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $user=User::find($id);
+        $input=$request->all();
+
+        if ($file=$request->file('image')) {
+          
+      
+       
+       $filename = rand(0,time()).$file->getClientOriginalName();
+   
+        File::delete('images/'.$user->image);
+        $file->move('images',$filename);
+        $input['image']=$filename;
+        }
+        $user->update($input);
+        if ($user) {
+            # code...
+            return redirect('/admin/users')->with('message', 'User updated added succefully');
+
+        }
     }
 
     /**
@@ -108,5 +133,11 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         //
+        $user=User::find($id);
+        $user_delete=$user->delete();
+        if ($user_delete) {
+            File::delete('images/'.$user->image);
+        }
+        return back()->with('message', 'User  deleted succefully');
     }
 }

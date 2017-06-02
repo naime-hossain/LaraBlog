@@ -15,6 +15,9 @@
                         </div>
 
                         <div class="panel-body">
+                            @if(Session::has('message'))
+                           @include('alert.success')
+                           @endif
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -45,8 +48,21 @@
                                           <td>  {{$user->is_active==1?'Active':'Not Active' }}</td>
                                               <td>{{ $user->created_at->diffForHumans() }}</td>
                                               <td>{{ $user->updated_at->diffForHumans() }}</td>
-                                            <td><a href="#">  <i class="fa fa-edit"></i> </a>
-                                            <a href="#">  <i class="fa fa-trash-o"></i> </a></td>
+                                            <td>
+                                            <a class="btn btn-info" href="{{ route('users.edit',$user->id) }}">  <i class="fa fa-edit"></i> 
+                                            </a>
+
+                                            {!! Form::open(['action'=>['AdminUsersController@destroy',$user->id],'method'=>'delete','class'=>'sm-form']) !!}
+                                            {!! Form::button("<i class='fa fa-trash-o'></i>",
+                                             [
+                                             'class'=>'btn btn-danger',
+                                             'onclick'=>"return confirm('want to delte?')",
+                                             'type'=>'submit'
+                                             ]) !!}
+                                            
+
+                                             {!! Form::close() !!}
+                                            </td>
                                         </tr>
                                       @endforeach
 

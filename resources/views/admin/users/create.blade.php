@@ -1,17 +1,17 @@
 @extends('admin.layouts.admin')
 @section('contents')
-@php
+{{-- @php
 	$roles=App\Role::all();
 	$single_role=[];
 
 @endphp
- @foreach ($roles as $role)
+ @foreach ($roles as $role) --}}
 	{{-- expr --}}
-	@php
+{{-- 	@php
 	$single_role[$role->id]=$role->name
 	@endphp
 
-@endforeach
+@endforeach --}}
 
   <div class="col-lg-12">
       <h1 class="page-header">Create New User</h1>
@@ -54,7 +54,7 @@
 
   <div class="form-group col-md-6">
      {!! Form::label('Role','Select Role for user', []) !!}
- 	 {!! Form::select('role_id',['ROle'=>$single_role],'', ['placeholder' => 'Pick a role...','class'=>'form-control']) !!}
+ 	 {!! Form::select('role_id',$roles,'', ['placeholder' => 'Pick a role...','class'=>'form-control']) !!}
  {{-- 	{!! Form::select('size', ['L' => 'Large', 'S' => 'Small'], 'S')!!}
  	{!! Form::select('animal',[
     'Cats' => ['leopard' => 'Leopard'],
