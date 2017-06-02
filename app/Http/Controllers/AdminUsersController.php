@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Role;
+use App\Photo;
   use Illuminate\Support\Facades\File;
 class AdminUsersController extends Controller
 {
@@ -54,8 +55,12 @@ class AdminUsersController extends Controller
             # code...
              $filename= rand(0,time()).$file->getClientOriginalName();
              $file->move('images',$filename);
+              $photo=Photo::create(['image'=>$filename]);
+              $input['photo_id']=$photo->id;
         }
-        $input['image']=$filename;
+
+        
+
         $input['password']=bcrypt($request->password);
         
         $user=User::create($input);
@@ -105,16 +110,23 @@ class AdminUsersController extends Controller
         //
         $user=User::find($id);
         $input=$request->all();
-
+        $input['photo_id']=$user->photo_id;
         if ($file=$request->file('image')) {
           
       
        
        $filename = rand(0,time()).$file->getClientOriginalName();
-   
-        File::delete('images/'.$user->image);
-        $file->move('images',$filename);
-        $input['image']=$filename;
+          if ($user->photo) {
+              # code...
+            File::delete('images/'.$user->photo->image);
+          }
+          $file->move('images',$filename);
+        
+         $photo=Photo::create(['image'=>$filename]);
+        
+        //excluding the image from input array
+        // unset($input['image']);
+         $input['photo_id']=$photo->id;
         }
         $user->update($input);
         if ($user) {

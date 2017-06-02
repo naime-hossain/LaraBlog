@@ -26,7 +26,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="/">
                     {{-- <img src="/assets/img/logo.png" alt="" /> --}}
                     Larablog
                 </a>
@@ -291,10 +291,10 @@
                         <a href=""><i class="fa fa-user fa-fw"></i> users<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{Route('users.index')}}">all users</a>
+                                <a href="{{route('users.index')}}">all users</a>
                             </li>
                             <li>
-                                <a href="{{Route('users.create')}}">add users</a>
+                                <a href="{{route('users.create')}}">add users</a>
                             </li>
                         </ul>
                         <!-- second-level-items -->
