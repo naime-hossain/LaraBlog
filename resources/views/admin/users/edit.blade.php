@@ -14,8 +14,11 @@
 @endforeach --}}
 
   <div class="col-lg-12">
-      <h1 class="page-header">Create New User</h1>
+      <h1 class="page-header">Edit user</h1>
 
+  </div>
+  <div class="col-md-3">
+    <img class="img-responsive img-rounded" src="{{ $user->photo?$user->photo->image:'http://via.placeholder.com/350x350' }}" alt="">
   </div>
 
  <div class="col-md-8 col-offset-2">

@@ -38,7 +38,7 @@
                                         <tr class="{{$user->is_active==1?'success':'warning' }}">
                                           <td>{{ $user->id }}</td>
                                             <td>{{ $user->name }}</td>
-                                            <td><img class="img-rounded raised img-responsive" src="/images/{{ $user->photo?$user->photo->image: $user->id }}" alt="{{ $user->name }}"></td>
+                                            <td><img class="img-rounded raised img-responsive" src="{{ $user->photo?$user->photo->image: $user->id }}" alt="{{ $user->name }}"></td>
                                             <td>{{ $user->email }}</td>
                                             <td> @if($user->role){{ $user->role->name }}@endif</td>
                                             {{-- <td>@if ($user->is_active)

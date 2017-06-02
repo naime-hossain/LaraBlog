@@ -93,7 +93,7 @@ class AdminUsersController extends Controller
     public function edit($id)
     {
         //
-         $roles=Role::pluck('name','id')->all();
+        $roles=Role::pluck('name','id')->all();
         $user=User::find($id);
         return view('admin.users.edit',compact('user','roles'));
     }
@@ -131,7 +131,7 @@ class AdminUsersController extends Controller
         $user->update($input);
         if ($user) {
             # code...
-            return redirect('/admin/users')->with('message', 'User updated added succefully');
+            return redirect('/admin/users')->with('message', 'User Info updated  succefully');
 
         }
     }
