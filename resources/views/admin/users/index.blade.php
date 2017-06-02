@@ -56,7 +56,7 @@
                                             {!! Form::button("<i class='fa fa-trash-o'></i>",
                                              [
                                              'class'=>'btn btn-danger',
-                                             'onclick'=>"return confirm('want to delte?')",
+                                             'onclick'=>"return confirm('want to delete?')",
                                              'type'=>'submit'
                                              ]) !!}
                                             
