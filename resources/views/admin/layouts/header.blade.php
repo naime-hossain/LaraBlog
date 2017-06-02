@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootsrtap Free Admin Template - SIMINTA | Admin Dashboad Template</title>
+    <title>Larablog</title>
     <!-- Core CSS - Include with every page -->
-    <link href="/assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="/css/app.css" rel="stylesheet" />
     <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="/assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
     <link href="/assets/css/style.css" rel="stylesheet" />
@@ -27,7 +27,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.html">
-                    <img src="/assets/img/logo.png" alt="" />
+                    {{-- <img src="/assets/img/logo.png" alt="" /> --}}
+                    Larablog
                 </a>
             </div>
             <!-- end navbar-header -->
@@ -284,23 +285,23 @@
                         <!--end search section-->
                     </li>
                     <li class="selected">
-                        <a href="index.html"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
+                        <a href="/admin"><i class="fa fa-dashboard fa-fw"></i>&nbsp;Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> users<span class="fa arrow"></span></a>
+                        <a href=""><i class="fa fa-user fa-fw"></i> users<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="">all users</a>
+                                <a href="{{Route('users.index')}}">all users</a>
                             </li>
                             <li>
-                                <a href="">add users</a>
+                                <a href="{{Route('users.create')}}">add users</a>
                             </li>
                         </ul>
                         <!-- second-level-items -->
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> posts<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>&nbsp; posts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="">all posts</a>
@@ -312,7 +313,7 @@
                         <!-- second-level-items -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> categories<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> &nbsp;categories<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="">all categories</a>

@@ -5,13 +5,13 @@
       <h1 class="page-header">All Users</h1>
   </div>
   <!--End Page Header -->
-  </div>
-  <div class="col-lg-6">
+
+  <div class="col-md-12">
                      <!--    Context Classes  -->
                     <div class="panel panel-default">
 
                         <div class="panel-heading">
-                            Context Classes
+                          Users Database
                         </div>
 
                         <div class="panel-body">
@@ -19,28 +19,32 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>Id</th>
                                             <th>Name</th>
+                                            <th>image</th>
                                             <th>Email</th>
                                             <th>Role</th>
                                             <th>Status</th>
+                                            <th>Created At</th>
+                                            <th>Updated At</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                       @foreach ($users as $user)
-                                        <tr class="@if ($user->is_active)
-                                          {{ 'success' }}
-                                        @else{{ 'warning' }}
-                                        @endif">
-                                            <td>{{ $user->id }}</td>
+                                        <tr class="{{$user->is_active==1?'success':'warning' }}">
+                                          <td>{{ $user->id }}</td>
                                             <td>{{ $user->name }}</td>
+                                            <td><img class="img-rounded raised img-responsive" src="/images/{{ $user->image }}" alt="{{ $user->name }}"></td>
                                             <td>{{ $user->email }}</td>
-                                            <td>{{ $user->role->name }}</td>
-                                            <td>@if ($user->is_active)
+                                            <td> @if($user->role){{ $user->role->name }}@endif</td>
+                                            {{-- <td>@if ($user->is_active)
                                               {{ 'active' }}
                                             @else{{ 'not active' }}
-                                            @endif</td>
+                                            @endif</td> --}}
+                                          <td>  {{$user->is_active==1?'Active':'Not Active' }}</td>
+                                              <td>{{ $user->created_at->diffForHumans() }}</td>
+                                              <td>{{ $user->updated_at->diffForHumans() }}</td>
                                             <td><a href="#">  <i class="fa fa-edit"></i> </a>
                                             <a href="#">  <i class="fa fa-trash-o"></i> </a></td>
                                         </tr>

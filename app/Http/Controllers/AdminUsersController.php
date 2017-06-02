@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-class AdminUersController extends Controller
+class AdminUsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,6 +26,7 @@ class AdminUersController extends Controller
     public function create()
     {
         //
+        return view('admin.users.create');
     }
 
     /**
@@ -37,6 +38,31 @@ class AdminUersController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'name'=>'required|unique:users',
+            'email'=>'required|unique:users',
+            'password'=>'required|confirmed',
+            'role_id'=>'required',
+            'image'=>'required|image',
+            ]);
+
+        $input=$request->all();
+        if ($file=$request->file('image')) {
+            # code...
+             $filename= rand(0,time()).$file->getClientOriginalName();
+             $file->move('images',$filename);
+        }
+        $input['image']=$filename;
+        $input['password']=bcrypt($request->password);
+        
+        $user=User::create($input);
+   if ($user) {
+       # code...
+     return back()->with('message', 'User added succefully');
+   }else{
+     return back()->with('message', 'User not added succefully');
+   }
+
     }
 
     /**
