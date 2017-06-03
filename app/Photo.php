@@ -14,7 +14,7 @@ class Photo extends Model
      * @var array
      */
     protected $fillable = ['image'];
-    protected $directory='/images/';
+    protected $directory='images/';
     public function getImageAttribute($image){
      return $this->directory.$image;
     }

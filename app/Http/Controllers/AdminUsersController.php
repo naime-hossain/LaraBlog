@@ -108,18 +108,26 @@ class AdminUsersController extends Controller
     public function update(Request $request, $id)
     {
         //
+           $this->validate($request,[
+            'image'=>'image',
+            ]);
         $user=User::find($id);
         $input=$request->all();
         $input['photo_id']=$user->photo_id;
+
         if ($file=$request->file('image')) {
           
       
        
        $filename = rand(0,time()).$file->getClientOriginalName();
-          if ($user->photo) {
+       //remove old history
+          if ($user->photo_id) {
               # code...
-            File::delete('images/'.$user->photo->image);
+        File::delete($user->photo->image);
+        $old_photo=Photo::find($user->photo_id)->delete();
           }
+
+          //create new photo
           $file->move('images',$filename);
         
          $photo=Photo::create(['image'=>$filename]);
@@ -146,9 +154,12 @@ class AdminUsersController extends Controller
     {
         //
         $user=User::find($id);
-        $user_delete=$user->delete();
-        if ($user_delete) {
-            File::delete('images/'.$user->image);
+       
+        if ($user) {
+            File::delete($user->photo->image);
+            $old_photo=Photo::find($user->photo_id)->delete();
+             $user_delete=$user->delete();
+
         }
         return back()->with('message', 'User  deleted succefully');
     }
