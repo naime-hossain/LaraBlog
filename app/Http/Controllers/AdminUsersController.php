@@ -66,7 +66,7 @@ class AdminUsersController extends Controller
         $user=User::create($input);
    if ($user) {
        # code...
-    return redirect('/admin/users')->with('message', 'User updated added succefully');
+    return redirect('/admin/users')->with('message', 'User  added succefully');
    }else{
      return back()->with('message', 'User not added succefully');
    }

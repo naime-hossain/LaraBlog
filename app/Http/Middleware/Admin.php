@@ -18,7 +18,7 @@ class Admin
 
         if (Auth::check()) {
             # code...
-            if (Auth::user()->isadmin()) {
+            if (Auth::user()->isadmin() && Auth::user()->isactive()) {
                 # code...
                  return $next($request);
             }
