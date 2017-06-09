@@ -229,8 +229,9 @@
                 </li>
 
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-3x"></i>
+                    <a class="dropdown-toggle fa-2x" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user "></i>
+                        {{ Auth::user()->name }}
                     </a>
                     <!-- dropdown user-->
                     <ul class="dropdown-menu dropdown-user">
@@ -261,10 +262,10 @@
                         <!-- user image section-->
                         <div class="user-section">
                             <div class="user-section-inner">
-                                <img src="/assets/img/user.jpg" alt="">
+                                <img src="/{{ Auth::user()->photo->image }}" alt="">
                             </div>
                             <div class="user-info">
-                                <div>Jonny <strong>Deen</strong></div>
+                                <div>{{ Auth::user()->name }}</strong></div>
                                 <div class="user-text-online">
                                     <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
                                 </div>
