@@ -235,9 +235,9 @@
                     </a>
                     <!-- dropdown user-->
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i>User Profile</a>
+                        <li><a href="{{ route('users.show', Auth::user()->id) }}"><i class="fa fa-user fa-fw"></i>User Profile</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
+                        <li><a href="{{ route('users.edit', Auth::user()->id) }}"><i class="fa fa-gear  fa-fw"></i>Settings</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href=" {{ route('logout') }}"
