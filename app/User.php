@@ -37,6 +37,17 @@ class User extends Authenticatable
         return $this->belongsTo('App\Photo');
       }
 
+    /**
+     * User has many Posts.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function posts()
+    {
+        // hasMany(RelatedModel, foreignKeyOnRelatedModel = user_id, localKey = id)
+        return $this->hasMany('App\Post');
+    }
+
       public function isactive(){
          if ($this->is_active==1) {
              # code...

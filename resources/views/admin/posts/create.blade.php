@@ -3,11 +3,7 @@
 
 
   <div class="col-lg-12">
-      <h1 class="page-header">Edit post</h1>
-
-  </div>
-  <div class="col-md-3">
-    <img class="img-responsive img-rounded" src="/{{ $post->photo?$post->photo->image:'http://via.placeholder.com/350x350' }}" alt="">
+      <h1 class="page-header">Create New Post</h1>
   </div>
 
  <div class="col-md-8 col-offset-2">
@@ -19,22 +15,21 @@
     @endif
 
 
+ {!! Form::open(['action'=>'AdminPostsController@store','method'=>'post','files' => true]) !!}
 
- {!! Form::model($post,['action'=>['AdminPostsController@update',$post->id],'method'=>'put','files' => true]) !!}
-
-    <div class="form-group col-md-6  {{ $errors->has('title') ? ' has-error' : '' }}">
+   <div class="form-group  {{ $errors->has('title') ? ' has-error' : '' }}">
        {!! Form::label('title','Post title', []) !!}
-     {!! Form::text('title',null, ['class'=>"form-control",'value'=>old('title')]) !!}
+   	 {!! Form::text('title',null, ['class'=>"form-control",'value'=>old('title')]) !!}
    </div>
 
     <div class="form-group col-md-6">
        {!! Form::label('category','Select Category for Post', []) !!}
-     {!! Form::select('category_id',['1'=>'new'],'', ['placeholder' => 'Pick a category...','class'=>'form-control']) !!}
+   	 {!! Form::select('category_id',['1'=>'new'],'', ['placeholder' => 'Pick a category...','class'=>'form-control']) !!}
    </div>
 
     <div class="form-group col-md-6">
        {!! Form::label('Image','Select a Photo', []) !!}
-     {!! Form::file('photo_id', ['class'=>'form-control']) !!}
+   	 {!! Form::file('photo_id', ['class'=>'form-control']) !!}
    </div>
 
     <div class="form-group col-md-12 {{ $errors->has('body') ? ' has-error' : '' }}">
@@ -44,9 +39,9 @@
 
 
     <div class="form-group col-md-12">
-     {!! Form::submit('submit', ['class'=>'btn btn-primary']) !!}
+   	 {!! Form::submit('submit', ['class'=>'btn btn-primary']) !!}
    </div>
- 
+   
 
  {!! Form::close() !!}
 

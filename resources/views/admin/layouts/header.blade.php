@@ -315,10 +315,10 @@
                         <a href="#"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>&nbsp; posts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="">all posts</a>
+                                <a href="{{ route('posts.index') }}">all posts</a>
                             </li>
                             <li>
-                                <a href="">add posts</a>
+                                <a href="{{ route('posts.create') }}">add new post</a>
                             </li>
                         </ul>
                         <!-- second-level-items -->

@@ -18,4 +18,6 @@ class Photo extends Model
     public function getImageAttribute($image){
      return $this->directory.$image;
     }
+
+    
 }
