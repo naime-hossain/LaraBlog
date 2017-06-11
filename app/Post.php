@@ -41,4 +41,15 @@ class Post extends Model
     	// belongsTo(RelatedModel, foreignKey = photo_id, keyOnRelatedModel = id)
     	return $this->belongsTo('App\Photo');
     }
+
+    /**
+     * Post belongs to Category.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+    	// belongsTo(RelatedModel, foreignKey = category_id, keyOnRelatedModel = id)
+    	return $this->belongsTo('App\Category');
+    }
 }

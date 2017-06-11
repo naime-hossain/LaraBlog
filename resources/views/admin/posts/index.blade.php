@@ -41,7 +41,7 @@
                                            <tr class="">
                                           <td>{{ $post->id }}</td>
                                             <td>{{ $post->title }}</td>
-                                            <td>{{ $post->body }}</td>
+                                            <td>{{ substr($post->body, 0,20)  }}</td>
                                             <td>
                                              @if ($post->photo)
                                               {{-- expr --}}
@@ -53,11 +53,11 @@
                                                {{ $post->user->name }}
                                             
                                              @endif</td>
-                                            <td>@if($post->categories)
-                                             @foreach ($post->categories as $category)
+                                            <td>@if($post->category)
+                                         
                                                {{-- expr --}}
-                                               {{ $category->name }}
-                                             @endforeach
+                                               {{ $post->category->name }}
+                                             
                                              @endif</td>
                                         
                                               <td>{{ $post->created_at->diffForHumans() }}</td>

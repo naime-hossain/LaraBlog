@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Post;
 use App\User;
 use App\Photo;
+use App\Category;
+use Illuminate\Support\Facades\File;
 class AdminPostsController extends Controller
 {
     /**
@@ -30,7 +32,8 @@ class AdminPostsController extends Controller
     public function create()
     {
         //
-        return view('admin.posts.create');
+          $categories=Category::pluck('name','id')->all();
+        return view('admin.posts.create',compact('categories'));
     }
 
     /**
@@ -85,8 +88,9 @@ class AdminPostsController extends Controller
     public function edit($id)
     {
         //
+        $categories=Category::pluck('name','id')->all();
         $post=Post::find($id);
-        return view('admin.posts.edit',compact('post'));
+        return view('admin.posts.edit',compact('post','categories'));
     }
 
     /**
@@ -99,6 +103,39 @@ class AdminPostsController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $post=Post::find($id);
+         $input=$request->all();
+        $user=Auth::user();
+            if ($file=$request->file('photo_id')) {
+          
+      
+       
+       $filename = rand(0,time()).$file->getClientOriginalName();
+       //remove old history
+          if ($post->photo_id) {
+              # code...
+        File::delete($post->photo->image);
+        $old_photo=Photo::find($post->photo_id)->delete();
+          }
+
+          //create new photo
+          $file->move('images',$filename);
+        
+         $photo=Photo::create(['image'=>$filename]);
+        
+        //excluding the image from input array
+        // unset($input['image']);
+         $input['photo_id']=$photo->id;
+        }
+        
+
+       if ($post->update($input)) {
+         
+        return redirect('/admin/posts')->with('message', 'Post  updated succefully');
+   }else{
+         return redirect('/admin/posts')->with('message', 'Post not updated succefully');
+       }
     }
 
     /**
