@@ -128,7 +128,7 @@ class AdminPostsController extends Controller
         // unset($input['image']);
          $input['photo_id']=$photo->id;
         }
-        
+        //$user->posts()->whereId($id)->update($input);
 
        if ($post->update($input)) {
          
@@ -147,6 +147,15 @@ class AdminPostsController extends Controller
     public function destroy($id)
     {
         //
-        return $id;
+            $post=Post::find($id);
+       
+        if ($post) {
+            File::delete($post->photo->image);
+            $old_photo=Photo::find($post->photo_id)->delete();
+             $post_delete=$post->delete();
+
+        }
+        return back()->with('message', 'User  deleted succefully');
     }
-}
+    }
+

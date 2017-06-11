@@ -17,7 +17,7 @@
 
  {!! Form::open(['action'=>'AdminPostsController@store','method'=>'post','files' => true]) !!}
 
-   <div class="form-group  {{ $errors->has('title') ? ' has-error' : '' }}">
+   <div class="form-group col-md-12 {{ $errors->has('title') ? ' has-error' : '' }}">
        {!! Form::label('title','Post title', []) !!}
    	 {!! Form::text('title',null, ['class'=>"form-control",'value'=>old('title')]) !!}
    </div>

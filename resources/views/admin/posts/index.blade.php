@@ -41,7 +41,8 @@
                                            <tr class="">
                                           <td>{{ $post->id }}</td>
                                             <td>{{ $post->title }}</td>
-                                            <td>{{ substr($post->body, 0,20)  }}</td>
+                                            {{-- <td>{{ substr($post->body, 0,20)  }}</td> --}}
+                                            <td>{{ str_limit($post->body,10)  }}</td>
                                             <td>
                                              @if ($post->photo)
                                               {{-- expr --}}
@@ -53,12 +54,12 @@
                                                {{ $post->user->name }}
                                             
                                              @endif</td>
-                                            <td>@if($post->category)
+                                            <td>
                                          
                                                {{-- expr --}}
-                                               {{ $post->category->name }}
+                                               {{ $post->category? $post->category->name:'uncategorized' }}
                                              
-                                             @endif</td>
+                                             </td>
                                         
                                               <td>{{ $post->created_at->diffForHumans() }}</td>
                                               <td>{{ $post->updated_at->diffForHumans() }}</td>

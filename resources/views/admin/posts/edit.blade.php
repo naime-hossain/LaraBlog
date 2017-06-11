@@ -22,14 +22,14 @@
 
  {!! Form::model($post,['action'=>['AdminPostsController@update',$post->id],'method'=>'put','files' => true]) !!}
 
-    <div class="form-group col-md-6  {{ $errors->has('title') ? ' has-error' : '' }}">
+    <div class="form-group col-md-12  {{ $errors->has('title') ? ' has-error' : '' }}">
        {!! Form::label('title','Post title', []) !!}
-     {!! Form::text('title',null, ['class'=>"form-control",'value'=>old('title')]) !!}
+     {!! Form::text('title',null, ['class'=>"form-control"]) !!}
    </div>
 
     <div class="form-group col-md-6">
        {!! Form::label('category','Select Category for Post', []) !!}
-     {!! Form::select('category_id',$categories,'', ['placeholder' => 'Pick a category...','class'=>'form-control']) !!}
+     {!! Form::select('category_id',$categories ,null, ['placeholder' => 'Pick a category...','class'=>'form-control']) !!}
    </div>
 
     <div class="form-group col-md-6">
@@ -39,7 +39,7 @@
 
     <div class="form-group col-md-12 {{ $errors->has('body') ? ' has-error' : '' }}">
        {!! Form::label('body','Post body', []) !!}
-     {!! Form::textarea('body',null,['class'=>'form-control','value'=>old('body'),'rows'=>5]) !!}
+     {!! Form::textarea('body',null,['class'=>'form-control','rows'=>5]) !!}
    </div>
 
 
