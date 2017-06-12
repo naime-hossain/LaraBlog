@@ -272,7 +272,7 @@
                         <!-- user image section-->
                         <div class="user-section">
                             <div class="user-section-inner">
-                                <img src="/{{ Auth::user()->photo->image }}" alt="">
+                                <img src="/{{  Auth::user()->photo?Auth::user()->photo->image:'placeholder' }}" alt="">
                             </div>
                             <div class="user-info">
                                 <div>{{ Auth::user()->name }}</strong></div>
