@@ -28,10 +28,11 @@ Route::group(['prefix' => 'admin','middleware'=>'admin'], function() {
 
     Route::resource('/users','AdminUsersController');
     Route::resource('/posts','AdminPostsController');
-
+    Route::resource('/categories','AdminCategoriesController');
 
 
 });
+
 
 
 

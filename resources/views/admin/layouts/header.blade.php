@@ -272,7 +272,7 @@
                         <!-- user image section-->
                         <div class="user-section">
                             <div class="user-section-inner">
-                                <img src="/{{  Auth::user()->photo?Auth::user()->photo->image:'placeholder' }}" alt="">
+                                <img class="img-rounded img-responsive" src="/{{  Auth::user()->photo?Auth::user()->photo->image:'placeholder' }}" alt="">
                             </div>
                             <div class="user-info">
                                 <div>{{ Auth::user()->name }}</strong></div>
@@ -327,10 +327,10 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> &nbsp;categories<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="">all categories</a>
+                                <a href="{{ route('categories.index') }}">all categories</a>
                             </li>
                             <li>
-                                <a href="">add categorie</a>
+                                <a href="{{ route('categories.create') }}">add new category</a>
                             </li>
                         </ul>
                         <!-- second-level-items -->
