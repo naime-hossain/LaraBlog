@@ -12,6 +12,8 @@
     <link href="/assets/css/main-style.css" rel="stylesheet" />
     <!-- Page-Level CSS -->
     <link href="/assets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <link href="/css/material-kit.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet"/>
    </head>
 <body>
     <!--  wrapper -->
