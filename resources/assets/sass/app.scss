@@ -7,11 +7,9 @@
 
 // // Bootstrap
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-body{color:black}
+body{color:black;font-size:12px;font-family: "raleway", "Helvetica", "Arial", sans-serif;}
 .navbar-default .navbar-brand {
-    color: #333;
-    text-transform: uppercase;
-    font-size: 35px;
+   
     margin-top: 10px;
     transition: all .5s;
 }
@@ -49,3 +47,49 @@ img.raised{
     margin-top: 80px!important;
     background-color: #4CAF50;
 }
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
+}
+.welcome_wrap{
+    width:100%;
+   }
+.welcome_text {
+    background: url(/images/bg2.jpeg?517fa6825046a8e4ae98a7146c5b9f28);
+    overflow: hidden;
+    text-align: center;
+    padding: 40px 0px;
+    background-size: 100% 100%;
+    color: #fff;
+    text-transform: capitalize;
+    /* background-position: center; */
+    margin-bottom: 30px;
+}
+
+.post_wrap{}
+.post_heading {
+    margin: 20px 0px 10px;
+}
+.post_heading h1 {
+    text-transform: capitalize;
+    font-size: 20px;
+}
+.post_heading p{text-transform: capitalize;}
+.post_heading p span{text-transform: capitalize;}
+.post_heading p span i {
+    /* display: block; */
+    padding: 3px;
+    margin-left: 3px;
+    /* margin-right: 3px; */
+}
+.post_body{display: block;}
+.post_body img{display: block;}
+.post_body p {
+    display: block;
+    font-size: 14px;
+    padding: 10px 0px;
+    margin-top: 5px;
+}
+

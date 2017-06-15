@@ -66,6 +66,24 @@ class User extends Authenticatable
          }
       }
 
+           public function isauthor(){
+         if ($this->role->name=='author') {
+             # code...
+            return true;
+         }else{
+            return false;
+         }
+      }
+
+      public function issubscriber(){
+         if ($this->role->name=='subscriber') {
+             # code...
+            return true;
+         }else{
+            return false;
+         }
+      }
+
 
 
 }

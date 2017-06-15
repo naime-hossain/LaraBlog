@@ -58,9 +58,9 @@ class AdminPostsController extends Controller
 
        if ($user->posts()->save($new_post)) {
          
-        return redirect('/admin/posts')->with('message', 'Post  Created succefully');
+        return redirect('/admin/adposts')->with('message', 'Post  Created succefully');
    }else{
-         return redirect('/admin/posts')->with('message', 'Post not Created succefully');
+         return redirect('/admin/adposts')->with('message', 'Post not Created succefully');
        }
         
 
@@ -132,9 +132,9 @@ class AdminPostsController extends Controller
 
        if ($post->update($input)) {
          
-        return redirect('/admin/posts')->with('message', 'Post  updated succefully');
+        return redirect('/admin/adposts')->with('message', 'Post  updated succefully');
    }else{
-         return redirect('/admin/posts')->with('message', 'Post not updated succefully');
+         return redirect('/admin/adposts')->with('message', 'Post not updated succefully');
        }
     }
 

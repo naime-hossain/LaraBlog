@@ -13,12 +13,12 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Auth::routes();
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin','middleware'=>'admin'], function() {
     //
@@ -27,11 +27,12 @@ Route::group(['prefix' => 'admin','middleware'=>'admin'], function() {
 });
 
     Route::resource('/users','AdminUsersController');
-    Route::resource('/posts','AdminPostsController');
+    Route::resource('/adposts','AdminPostsController');
     Route::resource('/categories','AdminCategoriesController');
 
 
 });
+Route::resource('/posts','PostsController');
 
 
 
