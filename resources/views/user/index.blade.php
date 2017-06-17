@@ -16,7 +16,7 @@
  					{{-- expr --}}
  					 <div class="">
  					 	
- 			
+ 					
  					<div class="post_wrap">
  						<div class="post_heading">
  							<h1>{{ $post->title }}</h1>

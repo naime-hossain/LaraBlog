@@ -65,9 +65,9 @@ img.raised {
 }
 
 #wrapper {
-  width: 100%;
-  margin-top: 80px !important;
-  background-color: #9C27B0;
+    width: 100%;
+    margin-top: 68px !important;
+    background-color: #9C27B0;
 }
 .navbar-static-side ul li {
     border-bottom: 1px solid #9C27B0 !important;

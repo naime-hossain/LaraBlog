@@ -53,8 +53,8 @@
 
                                 <ul class="dropdown-menu" role="menu">
                              
-                                         <li><a href="" title="">Profile</a></li>
-                                         <li><a href="" title="">Settings</a></li>
+                                         <li><a href="{{ route('user.show',Auth::user()->name) }}" title="">Profile</a></li>
+                                         
                                          <li><a href="" title="">All posts</a></li>
                                         <li>
                                             <a href="{{ route('logout') }}"

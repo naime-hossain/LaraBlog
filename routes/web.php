@@ -33,7 +33,11 @@ Route::group(['prefix' => 'admin','middleware'=>'admin'], function() {
 
 });
 Route::resource('/posts','PostsController');
+Route::get('/user/{name}','UserController@show')->name('user.show');
+Route::get('/user/{name}/edit','UserController@edit')->name('user.edit');
+Route::put('/user/{name}','UserController@update')->name('user.update');
+Route::delete('/user/{id}','UserController@destroy')->name('user.delete');
 
 
-
+// Route::resource('users','LoginController',['only' => ['index']]);
 

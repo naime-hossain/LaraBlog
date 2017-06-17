@@ -103,6 +103,7 @@ class PostsController extends Controller
         $categories=Category::pluck('name','id')->all();
         $post=Post::find($id);
         $user_id=Auth::user()->id;
+        //check the post is belong to logedin user or not
         if ($user_id==$post->user_id) {
             # code...
             return view('posts.edit',compact('post','categories'));
@@ -124,8 +125,13 @@ class PostsController extends Controller
         //
 
         $post=Post::find($id);
+
          $input=$request->all();
         $user=Auth::user();
+
+        $user_id=Auth::user()->id;
+        //check the post is belong to logedin user or not
+        if ($user_id==$post->user_id) {
             if ($file=$request->file('photo_id')) {
           
       
@@ -155,6 +161,9 @@ class PostsController extends Controller
    }else{
          return redirect('/posts')->with('message', 'Post not updated succefully');
        }
+   }else{
+      return redirect('/posts');
+   }
     }
 
     /**

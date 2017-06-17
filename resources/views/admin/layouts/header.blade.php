@@ -29,7 +29,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand fa-3x" href="/">
+                <a class="navbar-brand fa-2x" href="/">
                     {{-- <img src="/assets/img/logo.png" alt="" /> --}}
                     Larablog
                 </a>
@@ -40,7 +40,7 @@
                 <!-- main dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <span class="top-label label label-danger">3</span><i class="fa fa-envelope fa-3x"></i>
+                        <span class="top-label label label-danger">3</span><i class="fa fa-envelope fa-2x"></i>
                     </a>
                     <!-- dropdown-messages -->
                     <ul class="dropdown-menu dropdown-messages">
@@ -92,7 +92,7 @@
 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <span class="top-label label label-success">4</span>  <i class="fa fa-tasks fa-3x"></i>
+                        <span class="top-label label label-success">4</span>  <i class="fa fa-tasks fa-2x"></i>
                     </a>
                     <!-- dropdown tasks -->
                     <ul class="dropdown-menu dropdown-tasks">
@@ -172,7 +172,7 @@
 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <span class="top-label label label-warning">5</span>  <i class="fa fa-bell fa-3x"></i>
+                        <span class="top-label label label-warning">5</span>  <i class="fa fa-bell fa-2x"></i>
                     </a>
                     <!-- dropdown alerts-->
                     <ul class="dropdown-menu dropdown-alerts">
@@ -232,7 +232,7 @@
                 </li>
 
                 <li class="dropdown">
-                    <a class="dropdown-toggle fa-3x" data-toggle="dropdown" href="#">
+                    <a class="dropdown-toggle fa-2x" data-toggle="dropdown" href="#">
                         <i class="fa fa-user "></i>
                         {{ Auth::user()->name }}
                     </a>

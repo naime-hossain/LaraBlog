@@ -17,7 +17,7 @@ class Subscriber
     {
          if (Auth::check()) {
             # code...
-            if (Auth::user()->issubscriber() && Auth::user()->isactive()) {
+            if (Auth::user()->issubscriber() || Auth::user()->isauthor() && Auth::user()->isactive()) {
                 # code...
                  return $next($request);
             }
