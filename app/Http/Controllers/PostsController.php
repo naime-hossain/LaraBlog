@@ -33,6 +33,29 @@ class PostsController extends Controller
         return view('posts.index',compact('posts'));
     }
 
+
+    /**
+     * Display a listing of the specific user posts.
+     *@param string $name
+     * @return \Illuminate\Http\Response
+     */
+    public function userPosts($name)
+    {
+        //
+        $user=User::whereName($name)->first();
+        if ($user) {
+            # code...
+        $posts=$user->posts;
+        return view('user.index',compact('posts','user'));
+
+        }else{
+            return back();
+        }
+       
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -102,14 +125,21 @@ class PostsController extends Controller
 
         $categories=Category::pluck('name','id')->all();
         $post=Post::find($id);
-        $user_id=Auth::user()->id;
-        //check the post is belong to logedin user or not
-        if ($user_id==$post->user_id) {
-            # code...
-            return view('posts.edit',compact('post','categories'));
-        }else{
-            return view('posts.index');
-        }
+            if ($post) {
+                # code...
+                   $user_id=Auth::user()->id;
+                    //check the post is belong to logedin user or not
+                    if ($user_id==$post->user_id) {
+                        # code...
+                        return view('posts.edit',compact('post','categories'));
+                    }else{
+                       return redirect(route('user.posts',Auth::user()->name))->with('message', 'you are not allowed to edit this post');;
+                    }
+            }else{
+                return redirect('/posts')->with('message', 'No post found to edit');
+
+            }
+     
         
     }
 
@@ -175,15 +205,28 @@ class PostsController extends Controller
     public function destroy($id)
     {
         //
-            $post=Post::find($id);
-       
-        if ($post) {
-            File::delete($post->photo->image);
-            $old_photo=Photo::find($post->photo_id)->delete();
-             $post_delete=$post->delete();
+    $post=Post::find($id);
+          $user_id=Auth::user()->id;
+                    //check the post is belong to logedin user or not
+                    if ($user_id==$post->user_id)
+                     {
+                          if ($post)
+                                 {
+                                    File::delete($post->photo->image);
+                                    $old_photo=Photo::find($post->photo_id)->delete();
+                                    $post_delete=$post->delete();
+                                    return back()->with('message', 'post  deleted succefully');
 
-        }
-        return back()->with('message', 'User  deleted succefully');
+                                  }
+                    }
+                    else{
+                       return redirect(route('user.posts',Auth::user()->name))->with('message', 'you are not allowed to edit this post');;
+                    }
+
+        
+
+
+
     }
     }
 

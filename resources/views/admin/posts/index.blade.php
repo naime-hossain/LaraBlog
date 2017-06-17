@@ -64,7 +64,7 @@
                                               <td>{{ $post->created_at->diffForHumans() }}</td>
                                               <td>{{ $post->updated_at->diffForHumans() }}</td>
                                             <td>
-                                            <a class="btn btn-info" href="{{ route('posts.edit',$post->id) }}">  <i class="fa fa-edit"></i> 
+                                            <a class="btn btn-info" href="{{ route('adposts.edit',$post->id) }}">  <i class="fa fa-edit"></i> 
                                             </a>
 
                                             {!! Form::open(['action'=>['AdminPostsController@destroy',$post->id],'method'=>'delete','class'=>'sm-form']) !!}

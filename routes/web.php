@@ -33,6 +33,7 @@ Route::group(['prefix' => 'admin','middleware'=>'admin'], function() {
 
 });
 Route::resource('/posts','PostsController');
+Route::get('/user/{name}/posts','PostsController@userPosts')->name('user.posts');
 Route::get('/user/{name}','UserController@show')->name('user.show');
 Route::get('/user/{name}/edit','UserController@edit')->name('user.edit');
 Route::put('/user/{name}','UserController@update')->name('user.update');

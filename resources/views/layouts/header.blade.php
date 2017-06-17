@@ -55,7 +55,7 @@
                              
                                          <li><a href="{{ route('user.show',Auth::user()->name) }}" title="">Profile</a></li>
                                          
-                                         <li><a href="" title="">All posts</a></li>
+                                         <li><a href="{{ route('user.posts',Auth::user()->name) }}" title="">All posts</a></li>
                                         <li>
                                             <a href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
