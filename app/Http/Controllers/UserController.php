@@ -8,13 +8,13 @@ use App\Post;
 use App\User;
 use App\Photo;
 use App\Category;
+use Illuminate\Support\Facades\File;
 class UserController extends Controller
 {
 
      public function __construct(){
         $this->middleware('subscriber')->except(
-            ['show',
-            
+            [
              ]);
         // $this->middleware('subscriber')->only(['create','edit']);
     }
@@ -92,7 +92,7 @@ class UserController extends Controller
             ]);
          $user=User::whereName($name)->first();
           $user_id=Auth::user()->id;
-        //check the post is belong to logedin user or not
+        //check the profile is belong to logedin user or not
         if ($user_id==$user->id) {
 
 
