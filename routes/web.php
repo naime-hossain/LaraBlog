@@ -20,6 +20,7 @@ Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
+//Admin routes
 Route::group(['prefix' => 'admin','middleware'=>'admin'], function() {
     //
     Route::get('/', function () {
@@ -32,13 +33,23 @@ Route::group(['prefix' => 'admin','middleware'=>'admin'], function() {
 
 
 });
+
+
+
+//Posts Route
 Route::resource('/posts','PostsController');
+
+
+//User Routes
 Route::get('/user/{name}/posts','PostsController@userPosts')->name('user.posts');
 Route::get('/user/{name}','UserController@show')->name('user.show');
 Route::get('/user/{name}/edit','UserController@edit')->name('user.edit');
 Route::put('/user/{name}','UserController@update')->name('user.update');
 Route::delete('/user/{id}','UserController@destroy')->name('user.delete');
 
+
+//Comments Route
+Route::post('/post/{post}/comment','CommentsController@store')->name('comment.store');
 
 // Route::resource('users','LoginController',['only' => ['index']]);
 

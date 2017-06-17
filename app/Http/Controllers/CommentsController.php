@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Post;
 class CommentsController extends Controller
 {
+
+       public function __construct()
+       {
+
+        $this->middleware('subscriber')->except([]);
+        // $this->middleware('subscriber')->only(['create','edit']);
+       }
     /**
      * Display a listing of the resource.
      *
@@ -32,9 +39,15 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Post $post)
     {
         //
+        $this->validate(request(),[
+            'body'=>'required',
+            ]);
+        $post->comments()->create(['body'=>request('body'),'user_id'=>auth()->user()->id]);
+        return back()->with('message','Comment Posted');
+
     }
 
     /**

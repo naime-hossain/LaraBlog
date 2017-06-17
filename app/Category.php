@@ -13,4 +13,16 @@ class Category extends Model
      * @var array
      */
     protected $fillable = ['name'];
+
+
+/**
+ * Category has many Posts.
+ *
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
+public function posts()
+{
+	// hasMany(RelatedModel, foreignKeyOnRelatedModel = category_id, localKey = id)
+	return $this->hasMany('App\Post');
+}
 }

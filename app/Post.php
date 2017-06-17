@@ -52,4 +52,15 @@ class Post extends Model
     	// belongsTo(RelatedModel, foreignKey = category_id, keyOnRelatedModel = id)
     	return $this->belongsTo('App\Category');
     }
+
+    /**
+     * Post has many Comments.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        // hasMany(RelatedModel, foreignKeyOnRelatedModel = post_id, localKey = id)
+        return $this->hasMany('App\Comment');
+    }
 }

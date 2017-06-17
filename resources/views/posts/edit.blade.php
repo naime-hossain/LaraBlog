@@ -34,7 +34,7 @@
 
     <div class="form-group col-md-6">
        {!! Form::label('category','Select Category for Post', []) !!}
-     {!! Form::select('category_id',$categories ,null, ['placeholder' => 'Pick a category...','class'=>'form-control']) !!}
+     {!! Form::select('category_id',count($categories)>0?$categories:[0=>'uncategorized'] ,'', ['placeholder' => 'Pick a category...','class'=>'form-control']) !!}
    </div>
 
     <div class="form-group col-md-6">

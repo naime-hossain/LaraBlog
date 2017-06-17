@@ -23,10 +23,12 @@
  					 	
  					<div class="post_wrap">
  					
- 						<div class="post_body">
+ 						<div class="post_body ">
+                          <div class="col-md-4">
+                              
+                        
  							<img class="img-responsive img-raised img-rounded" src="/{{ $user->photo? $user->photo->image: '1' }}" alt="{{ $user->name }}">
- 							<p>email:{{ $user->email }}</p>
- 							<p>role:{{ $user->role->name }}</p>
+ 						
 
  							@if (Auth::check())
  							  @if (Auth::user()->id==$user->id)
@@ -47,7 +49,11 @@
  							  @endif
  								{{-- expr --}}
  							@endif
- 							
+                              </div>
+ 							<div class="col-md-4">
+                            <p>email:{{ $user->email }}</p>
+                            <p>role:{{ $user->role->name }}</p>  
+                            </div>
  						</div>
  					</div>
  					

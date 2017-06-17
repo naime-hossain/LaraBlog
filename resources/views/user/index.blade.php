@@ -41,20 +41,32 @@
  						<div class="post_body">
  							<img class="img-responsive img-raised img-rounded" src="/{{ $post->photo->image  }}" alt="">
  							<p>{{ str_limit($post->body,150) }}</p>
- 							<a class="btn btn-primary" href="{{ route('posts.show', $post->id) }}" title="">Read more</a>
- 							<a class="btn btn-info" href="{{ route('posts.edit',$post->id) }}">  <i class="fa fa-edit"></i> 
-                                            </a>
-                                           
-                                            {!! Form::open(['action'=>['PostsController@destroy',$post->id],'method'=>'delete','class'=>'sm-form']) !!}
-                                            {!! Form::button("<i class='fa fa-trash-o'></i>",
-                                             [
-                                             'class'=>'btn btn-danger',
-                                             'onclick'=>"return confirm('want to delete?')",
-                                             'type'=>'submit'
-                                             ]) !!}
-                                            
+              <a class="btn btn-primary" href="{{ route('posts.show', $post->id) }}" title="">Read more</a>
+              @if (Auth::check())
+                @if (Auth::user()->id==$user->id)
+                <div class="col-md-6">
+                  
+              <a class="btn btn-info" href="{{ route('posts.edit',$post->id) }}"> 
+               <i class="fa fa-edit"></i>
 
-                                             {!! Form::close() !!}
+               </a>
+                                           
+                {!! Form::open(['action'=>['PostsController@destroy',$post->id],'method'=>'delete','class'=>'sm-form']) !!}
+                {!! Form::button("<i class='fa fa-trash-o'></i>",
+                 [
+                 'class'=>'btn btn-danger',
+                 'onclick'=>"return confirm('want to delete?')",
+                 'type'=>'submit'
+                 ]) !!}
+                
+
+                 {!! Form::close() !!}     
+              </div>
+
+                @endif
+                {{-- expr --}}
+              @endif
+ 		
  						</div>
  					</div>
  					 </div>

@@ -17,7 +17,7 @@ class Author
     {
         if (Auth::check()) {
             # code...
-            if (Auth::user()->isauthor() && Auth::user()->isactive()) {
+            if (Auth::user()->isauthor()  || Auth::user()->isadmin() && Auth::user()->isactive()) {
                 # code...
                  return $next($request);
             }
