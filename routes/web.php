@@ -38,6 +38,9 @@ Route::group(['prefix' => 'admin','middleware'=>'admin'], function() {
 
 //Posts Route
 Route::resource('/posts','PostsController');
+//archive page
+Route::get('/posts/archive/author/{name}','PostsController@authorArchive')->name('archive.author');
+Route::get('/posts/archive/category/{name}','PostsController@categoryArchive')->name('archive.category');
 
 
 //User Routes
@@ -50,6 +53,7 @@ Route::delete('/user/{id}','UserController@destroy')->name('user.delete');
 
 //Comments Route
 Route::post('/post/{post}/comment','CommentsController@store')->name('comment.store');
+Route::delete('/post/comment/{id}','CommentsController@destroy')->name('comment.destroy');
 
 // Route::resource('users','LoginController',['only' => ['index']]);
 

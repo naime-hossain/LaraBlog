@@ -17,6 +17,8 @@ class PostsController extends Controller
         $this->middleware('author')->except(
             ['show',
             'index',
+            'authorArchive',
+            'categoryArchive'
           
              ]);
         // $this->middleware('subscriber')->only(['create','edit']);
@@ -47,6 +49,46 @@ class PostsController extends Controller
             # code...
         $posts=$user->posts;
         return view('user.index',compact('posts','user'));
+
+        }else{
+            return back();
+        }
+       
+    }
+
+        /**
+     * Display a listing of the specific user posts.
+     *@param string $name
+     * @return \Illuminate\Http\Response
+     */
+    public function authorArchive($name)
+    {
+        //
+        $user=User::whereName($name)->first();
+        if ($user) {
+            # code...
+        $posts=$user->posts;
+        return view('posts.archive.author',compact('posts','user'));
+
+        }else{
+            return back();
+        }
+       
+    }
+
+           /**
+     * Display a listing of the specific user posts.
+     *@param string $name
+     * @return \Illuminate\Http\Response
+     */
+    public function categoryArchive($name)
+    {
+        //
+        $category=Category::whereName($name)->first();
+        if ($category) {
+            # code...
+        $posts=$category->posts;
+        return view('posts.archive.category',compact('posts','category'));
 
         }else{
             return back();

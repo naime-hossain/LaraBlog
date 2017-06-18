@@ -8,6 +8,11 @@
 // // Bootstrap
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 body{color:black;font-size:12px;font-family: "raleway", "Helvetica", "Arial", sans-serif;}
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
+    font-family: "raleway", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 2em;
+}
 .navbar-default .navbar-brand {
    
     margin-top: 10px;
@@ -92,4 +97,26 @@ img.raised{
     padding: 10px 0px;
     margin-top: 5px;
 }
+.body_wrap {
+    padding: 10px 0px 60px 0px;
+    /* background: #009688; */
+}
 
+.sinle_comment_wrap {
+    overflow: hidden;
+    padding: 20px 0px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #9c27b0;
+}
+.post_wrap {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+}
+.commnet_form {
+    overflow: hidden;
+    margin-bottom: 40px;
+    padding: 20px 0px;
+}
+.btn-small{
+    padding: 5px 10px;
+}

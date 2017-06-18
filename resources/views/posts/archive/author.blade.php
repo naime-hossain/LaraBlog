@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('heading')
     {{-- expr --}}
-    <h1>All Posts Are Listed here</h1>
+     <h1>Author Archive</h1>
+    <h2>All post of {{ $user->name  }}</h2>
 @endsection
  
  		@section('content')
@@ -16,44 +17,39 @@
  					{{-- expr --}}
  					 <div class="">
  					 	
- 			
+ 					
  					<div class="post_wrap">
  						<div class="post_heading">
  							<h1>{{ $post->title }}</h1>
  							<p>
-	 							
-	 							<span> 
-	 							 <i class="fa fa-user"></i>
-	 							  <a href="{{ route('archive.author',$post->user->name) }}" title="">
-	 							  	 {{ $post->user->name }}
-	 							  </a>
-	 							 
-	 							</span>||
-	 					
-	 						   <span>
+	 						
+	 					     
+	 						   	 <span>
 	 							 <i class="fa fa-clock-o"></i>
 	 							  {{ $post->created_at->diffForHumans() }}
 	 							</span>||
-	 							
-	 							   <span>
+	 						
+	 						   <span>
 	 							 <i class="fa fa-tag"></i>
-				                  <a href="{{ route('archive.category',$post->category->name) }}" title="">
-				                     {{ $post->category_id==0?'uncategorized':$post->category->name }}
-				                    
-				                  </a>
-					 							 
+                  <a href="{{ route('archive.category',$post->category->name) }}" title="">
+                     {{ $post->category_id==0?'uncategorized':$post->category->name }}
+
+                  </a>
+	 							 
 	 							</span>||
-	 							 <span>
-	 							 <i class="fa fa-edit"></i>
-	 							  {{count($post->comments)==0?'0':count($post->comments) }}
-	 							  Comments
-	 							</span>
+                 <span>
+                 <i class="fa fa-edit"></i>
+                  {{count($post->comments)==0?'0':count($post->comments) }}
+                  Comments
+                </span>
+
  							</p>
  						</div>
  						<div class="post_body">
  							<img class="img-responsive img-raised img-rounded" src="/{{ $post->photo->image  }}" alt="">
  							<p>{{ str_limit($post->body,150) }}</p>
- 							<a class="btn btn-primary" href="{{ route('posts.show', $post->id) }}" title="">Read more</a>
+              <a class="btn btn-primary" href="{{ route('posts.show', $post->id) }}" title="">Read more</a>
+             
  						</div>
  					</div>
  					 </div>

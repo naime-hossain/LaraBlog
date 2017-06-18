@@ -13,14 +13,17 @@
 
      </div>
       </div>
-     <div class="container">
- 	<div class="row">
+       <div class="body_wrap">
+           <div class="container">
+         <div class="row">
          @yield('content') 
   
           @yield('sidebar')  
 
           </div>
           </div>
+       </div>
+       
     
  
 @include('layouts.footer')
