@@ -107,9 +107,9 @@
                 </span> 
                  @if (Auth::check())
                   {{-- expr --}}
-                  {{ Auth::user()->id==$comment->user->id?' you ':$comment->user->name }} says
+                  {{ Auth::user()->id==$comment->user->id?' you ':$comment->user->name }} said
                   @else
-                  {{ $comment->user->name }} says
+                  {{ $comment->user->name }} Said
                 @endif 
                 
               

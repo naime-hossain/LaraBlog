@@ -62,5 +62,9 @@
       
      
 @endsection
+@section('sidebar')
+      {{-- expr --}}
+@include('layouts.sidebar')
+ @endsection
  
 

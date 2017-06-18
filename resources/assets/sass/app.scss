@@ -60,17 +60,21 @@ img.raised{
 }
 .welcome_wrap{
     width:100%;
+    background: url(/images/bg2.jpeg?517fa6825046a8e4ae98a7146c5b9f28);
+    background-size: 100% 100%;
    }
 .welcome_text {
-    background: url(/images/bg2.jpeg?517fa6825046a8e4ae98a7146c5b9f28);
+    
     overflow: hidden;
     text-align: center;
-    padding: 40px 0px;
-    background-size: 100% 100%;
+    padding: 100px 0px;
+
     color: #fff;
     text-transform: capitalize;
     /* background-position: center; */
-    margin-bottom: 30px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    min-height: 300px;
 }
 
 .post_wrap{}
@@ -119,4 +123,12 @@ img.raised{
 }
 .btn-small{
     padding: 5px 10px;
+}
+.navbar, .navbar.navbar-default {
+    background-color: transparent;
+    color: #ffffff;
+}
+div#app {
+    position: absolute;
+    width: 100%;
 }
