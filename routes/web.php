@@ -41,6 +41,7 @@ Route::resource('/posts','PostsController');
 //archive page
 Route::get('/posts/archive/author/{name}','PostsController@authorArchive')->name('archive.author');
 Route::get('/posts/archive/category/{name}','PostsController@categoryArchive')->name('archive.category');
+Route::get('/posts/archive/time','PostsController@timeArchive')->name('archive.time');
 
 
 //User Routes

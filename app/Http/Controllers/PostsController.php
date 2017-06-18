@@ -9,6 +9,7 @@ use App\Post;
 use App\User;
 use App\Photo;
 use App\Category;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
 class PostsController extends Controller
 {
@@ -18,6 +19,7 @@ class PostsController extends Controller
             ['show',
             'index',
             'authorArchive',
+            'timeArchive',
             'categoryArchive'
           
              ]);
@@ -77,7 +79,7 @@ class PostsController extends Controller
     }
 
            /**
-     * Display a listing of the specific user posts.
+     * Display a listing of the specific category posts.
      *@param string $name
      * @return \Illuminate\Http\Response
      */
@@ -95,7 +97,35 @@ class PostsController extends Controller
         }
        
     }
+       /**
+     * Display a listing of the specific time posts.
+     *@param string $name
+     * @return \Illuminate\Http\Response
+     */
+    public function timeArchive()
+    {
+        //
+       
+        // $posts=Post::orderBy('id','desc')->get();
+        $posts=Post::latest();
+       if ($posts) {
+           # code...
+      
+       if ( $month=request('month')) {
+           $posts->whereMonth('created_at', Carbon::parse($month)->month);
+       }
+         if ( $year=request('year')) {
+           $posts->whereYear('created_at', Carbon::parse($year)->year);
+       }
+       $posts=$posts->get();
 
+   return view('posts.archive.time',compact('posts','month','year'));
+
+        }else{
+            return back();
+        }
+       
+    }
 
 
     /**

@@ -63,4 +63,19 @@ class Post extends Model
         // hasMany(RelatedModel, foreignKeyOnRelatedModel = post_id, localKey = id)
         return $this->hasMany('App\Comment');
     }
+
+      public static function archives (){
+
+      return static::selectRaw('year(created_at) year,monthname(created_at) month,count(*) published')
+        ->groupBy('year','month')
+        ->orderByRaw('min(created_at) desc')
+        ->get()
+        ->toArray();
+    }
+
+    public static function recent_post(){
+       return static::latest()->take(5)->get();
+    }
 }
+
+
