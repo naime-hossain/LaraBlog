@@ -102,15 +102,15 @@ img.raised{
     margin-top: 5px;
 }
 .body_wrap {
-    padding: 10px 0px 60px 0px;
-    /* background: #009688; */
+    padding: 0px 0px 60px 0px;
+    background: #1d3a4c;
+    color: #fff;
 }
-
 .sinle_comment_wrap {
     overflow: hidden;
     padding: 20px 0px;
     margin-bottom: 10px;
-    border-bottom: 1px dashed #9c27b0;
+    border-bottom: 1px dashed #fd7a60;
 }
 .post_wrap {
     margin-bottom: 40px;
@@ -131,4 +131,56 @@ img.raised{
 div#app {
     position: absolute;
     width: 100%;
+}
+.panel {
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 10px 0px;
+}
+ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
+  
+    line-height: 40px;
+    font-weight: 700;
+}
+div#app-navbar-collapse {
+    background: transparent;
+    z-index: 999;
+    position: relative;
+}
+div#app-navbar-collapse::after{
+    position: absolute;
+    content: " ";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    opacity: 0.7;
+    background:#9c27b0;
+    display: block;
+}
+a, a:hover, a:focus {
+    color: #fd7a60;
+}
+.btn.btn-primary, .btn.btn-primary:hover, .btn.btn-primary:focus, .btn.btn-primary:active, .btn.btn-primary.active, .btn.btn-primary:active:focus, .btn.btn-primary:active:hover, .btn.btn-primary.active:focus, .btn.btn-primary.active:hover, .open > .btn.btn-primary.dropdown-toggle, .open > .btn.btn-primary.dropdown-toggle:focus, .open > .btn.btn-primary.dropdown-toggle:hover, .navbar .navbar-nav > li > a.btn.btn-primary, .navbar .navbar-nav > li > a.btn.btn-primary:hover, .navbar .navbar-nav > li > a.btn.btn-primary:focus, .navbar .navbar-nav > li > a.btn.btn-primary:active, .navbar .navbar-nav > li > a.btn.btn-primary.active, .navbar .navbar-nav > li > a.btn.btn-primary:active:focus, .navbar .navbar-nav > li > a.btn.btn-primary:active:hover, .navbar .navbar-nav > li > a.btn.btn-primary.active:focus, .navbar .navbar-nav > li > a.btn.btn-primary.active:hover, .open > .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle, .open > .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle:focus, .open > .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle:hover {
+    background-color: #fd7a60;
+    color: #FFFFFF;
+}
+
+.navbar .dropdown-menu li > a:hover, .navbar .dropdown-menu li > a:focus, .navbar.navbar-default .dropdown-menu li > a:hover, .navbar.navbar-default .dropdown-menu li > a:focus {
+    color: #FFFFFF;
+    background-color: #fd7a60;
+}
+.form-group.is-focused .form-control {
+    border: 0;
+    background-image: linear-gradient(#fd7a60, #fd7a60), linear-gradient(#4CAF50, #4caf50);
+}
+.form-control{color:#fff;}
+option {
+    background: #1d3a4c;
+}
+.form-group.is-focused label{
+    color: #fd7a60;
 }
