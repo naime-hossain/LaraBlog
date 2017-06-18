@@ -60,7 +60,7 @@ img.raised{
 }
 .welcome_wrap{
     width:100%;
-    background: url(/images/bg2.jpeg?517fa6825046a8e4ae98a7146c5b9f28);
+    background: url(/images/bg2.jpeg);
     background-size: 100% 100%;
    }
 .welcome_text {
@@ -136,6 +136,10 @@ div#app {
     background-color: transparent;
     border: 1px solid transparent;
     padding: 10px 0px;
+    margin-top: 50px;
+}
+.panel > .panel-heading, .panel.panel-default > .panel-heading {
+    background-color: transparent;
 }
  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   
@@ -168,7 +172,9 @@ a, a:hover, a:focus {
     background-color: #fd7a60;
     color: #FFFFFF;
 }
-
+.btn.btn-primary:focus, .btn.btn-primary:active, .btn.btn-primary:hover, .navbar .navbar-nav > li > a.btn.btn-primary:focus, .navbar .navbar-nav > li > a.btn.btn-primary:active, .navbar .navbar-nav > li > a.btn.btn-primary:hover {
+    box-shadow: 0 14px 26px -12px rgba(253, 122, 96, 0.27), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(253, 122, 96, 0.13);
+}
 .navbar .dropdown-menu li > a:hover, .navbar .dropdown-menu li > a:focus, .navbar.navbar-default .dropdown-menu li > a:hover, .navbar.navbar-default .dropdown-menu li > a:focus {
     color: #FFFFFF;
     background-color: #fd7a60;

@@ -89,7 +89,7 @@
                   {!! Form::close() !!}
                   @else
                   <div class=" text-center  ">
-                    <a href="{{ route('login') }}" class="btn btn-info text-info">Please log in to comment</a>
+                    <a href="{{ route('login') }}" class="btn btn-primary text-info">Please log in to comment</a>
                   </div>
                  @endif
                   </div>
