@@ -159,10 +159,16 @@ class PostsController extends Controller
             // $input=$request->except('new_cat');
             unset($input['new_cat']);
         }else{
-          
-           $category=Category::Create(['name'=>$input['new_cat']]);
+            $existing_cat=Category::whereName($input['new_cat'])->first();
+          if ($existing_cat) {
+              # code...
+            return back()->with('message', 'this category already existed');
+          }else{
+            $category=Category::Create(['name'=>$input['new_cat']]);
            $input['category_id']=$category->id;
            unset($input['new_cat']);
+          }
+           
          }
 
         $user=Auth::user();
