@@ -37,6 +37,40 @@
              
             </ol>
           </div>
+              <div class="sidebar-module">
+            <h4>Categories</h4>
+            <ol class="list-unstyled">
+
+         
+              @foreach ($categories as $category)
+                {{-- expr --}}
+                 <li>
+                 <a class="" href="{{ route('archive.category',$category->name) }}">
+                 {{$category->name." ( ".count($category->posts)." ) "}}
+                 </a>
+                 </li>
+              @endforeach
+             
+             
+            </ol>
+          </div>
+              <div class="sidebar-module">
+            <h4>Users</h4>
+            <ol class="list-unstyled">
+
+         
+              @foreach ($users as $user)
+                {{-- expr --}}
+                 <li>
+                 <a class="" href="{{ route('archive.author',$user->name) }}">
+                 {{$user->name." ( ".count($user->posts)." ) "}}
+                 </a>
+                 </li>
+              @endforeach
+             
+             
+            </ol>
+          </div>
           <div class="sidebar-module">
             <h4>Elsewhere</h4>
             <ol class="list-unstyled">

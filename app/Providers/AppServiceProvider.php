@@ -29,6 +29,14 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with('latests',\App\Post::recent_post());
         });
+           view()->composer('layouts.sidebar',function($view){
+
+            $view->with('categories',\App\Category::all());
+        });
+             view()->composer('layouts.sidebar',function($view){
+
+            $view->with('users',\App\User::all());
+        });
     }
 
     /**
