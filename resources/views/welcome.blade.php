@@ -34,6 +34,9 @@
 
 									<!-- Wrapper for slides -->
 									<div class="carousel-inner">
+									@if ($latests->count()>0)
+										{{-- expr --}}
+									
 									@php
 										$n=0;
 									@endphp
@@ -63,7 +66,7 @@
 										@endif
 									
                                     @endforeach
-										
+							
 										
 									</div>
 
@@ -79,6 +82,7 @@
 						</div>
 						<!-- End Carousel Card -->
                      <a class="btn btn-primary text-center" href="{{ route('posts.index') }}" title="">Read All Posts</a> 
+                     @endif
 					</div>
 				</div>
 			</div>

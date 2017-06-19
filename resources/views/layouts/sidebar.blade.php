@@ -28,7 +28,7 @@
               @foreach ($archives as $stats)
                 {{-- expr --}}
                  <li>
-                 <a href="{{ route('archive.time') }}?month={{$stats['month']}}&year={{$stats['year']}}">
+                 <a class="" href="{{ route('archive.time') }}?month={{$stats['month']}}&year={{$stats['year']}}">
                  {{$stats['month'] .' '. $stats['year'] ." (". $stats['published'] .")"}}
                  </a>
                  </li>

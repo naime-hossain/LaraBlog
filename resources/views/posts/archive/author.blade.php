@@ -29,14 +29,22 @@
 	 							  {{ $post->created_at->diffForHumans() }}
 	 							</span>||
 	 						
-	 						   <span>
-	 							 <i class="fa fa-tag"></i>
-                  <a href="{{ route('archive.category',$post->category->name) }}" title="">
-                     {{ $post->category_id==0?'uncategorized':$post->category->name }}
+	 						  <span>
+                 <i class="fa fa-tag"></i>
+                  @if ($post->category)
+                    {{-- expr --}}
 
-                  </a>
-	 							 
-	 							</span>||
+                          <a href="{{ route('archive.category',$post->category->name) }}" title="">
+                             {{$post->category->name }}
+                           
+                          </a>
+                  @else
+                   <a href="{{ route('archive.category','uncategorized') }}" title="">
+                             uncategorized
+                           
+                          </a>      
+                  @endif
+                  </span>||
                  <span>
                  <i class="fa fa-edit"></i>
                   {{count($post->comments)==0?'0':count($post->comments) }}
