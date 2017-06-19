@@ -31,7 +31,8 @@ img.raised{
 // }
 .form-control, .form-group .form-control {
     border: 0;
-      background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#4CAF50, #4caf50);
+      // background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#4CAF50, #4caf50);
+      background-image:linear-gradient(#002444, #002444), linear-gradient(#002c53, #002c53);
 }
     
     #navbar {
@@ -184,6 +185,7 @@ a, a:hover, a:focus {
 .form-group.is-focused .form-control {
     border: 0;
     background-image: linear-gradient(#fd7a60, #fd7a60), linear-gradient(#4CAF50, #4caf50);
+    // background-image:linear-gradient(#002444, #002444), linear-gradient(#002c53, #002c53);
 }
 .form-control{color:#fff;}
 option {
