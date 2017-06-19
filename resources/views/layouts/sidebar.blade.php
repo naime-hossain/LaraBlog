@@ -3,7 +3,9 @@
             <h4>About</h4>
             <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
           </div>
-          <div class="sidebar-module">
+          @if (count($latests)>0)
+            {{-- expr --}}
+               <div class="sidebar-module">
             <h4>recent posts</h4>
             <ol class="list-unstyled">
 
@@ -19,8 +21,11 @@
              
             </ol>
           </div>
-
-          <div class="sidebar-module">
+          @endif
+       
+           @if (count($archives)>0)
+            {{-- expr --}}
+               <div class="sidebar-module">
             <h4>archives</h4>
             <ol class="list-unstyled">
 
@@ -37,7 +42,11 @@
              
             </ol>
           </div>
-              <div class="sidebar-module">
+          @endif
+       
+           @if (count($categories)>0)
+            {{-- expr --}}
+                  <div class="sidebar-module">
             <h4>Categories</h4>
             <ol class="list-unstyled">
 
@@ -54,7 +63,11 @@
              
             </ol>
           </div>
-              <div class="sidebar-module">
+          @endif
+        
+           @if (count($users)>0)
+            {{-- expr --}}
+               <div class="sidebar-module">
             <h4>Users</h4>
             <ol class="list-unstyled">
 
@@ -71,6 +84,8 @@
              
             </ol>
           </div>
+          @endif
+           
           <div class="sidebar-module">
             <h4>Elsewhere</h4>
             <ol class="list-unstyled">
