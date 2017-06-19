@@ -7,7 +7,7 @@
 
 // // Bootstrap
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-body{color:black;font-size:12px;font-family: "raleway", "Helvetica", "Arial", sans-serif;}
+body{color:#eee;font-size:12px;font-family: "raleway", "Helvetica", "Arial", sans-serif;}
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
     font-family: "raleway", "Helvetica", "Arial", sans-serif;
     font-weight: 400;
@@ -25,10 +25,10 @@ img.raised{
 .sm-form{
 	float:right;
 }
-.img-rounded {
-    border-radius: 6px;
-    box-shadow: 1px 2px 2px 2px #16322b;
-}
+// .img-rounded {
+//     border-radius: 6px;
+//     box-shadow: 1px 2px 2px 2px #16322b;
+// }
 .form-control, .form-group .form-control {
     border: 0;
       background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#4CAF50, #4caf50);
@@ -60,7 +60,7 @@ img.raised{
 }
 .welcome_wrap{
     width:100%;
-    background: url(/images/bg2.jpeg);
+    background: url(/images/21.jpg);
     background-size: 100% 100%;
    }
 .welcome_text {
@@ -101,7 +101,9 @@ img.raised{
 }
 .body_wrap {
       padding: 60px 0px 60px 0px;
-    background: #1d3a4c;
+    // background: #1d3a4c;
+    background: #002444;
+    // background: #012442;
     color: #fff;
 }
 .sinle_comment_wrap {
@@ -141,12 +143,10 @@ div#app {
 }
  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   
-    line-height: 20px;
+    line-height: 1.1;
     font-weight: 700;
 }
-h1{
-  line-height: 40px;  
-}
+
 div#app-navbar-collapse {
     background: transparent;
     z-index: 999;
@@ -163,7 +163,8 @@ div#app-navbar-collapse::after{
     right: 0;
     z-index: -1;
     opacity: 0.7;
-    background:#1d3a4c;
+    // background:#1d3a4c;
+    background:#012442;
     display: block;
 }
 a, a:hover, a:focus {
@@ -186,7 +187,7 @@ a, a:hover, a:focus {
 }
 .form-control{color:#fff;}
 option {
-    background: #1d3a4c;
+    background: #012442;
 }
 .form-group.is-focused label,.form-group.is-focused label.control-label{
     color: #fd7a60;
@@ -222,7 +223,7 @@ option {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background:#1d3a4c;
+    background:#012442;
     opacity: .7;
     top:0;
     bottom:0;
@@ -230,8 +231,20 @@ option {
     left: 0;
 }
 .footer_wrap {
-    background: #1d3a4c;
+    // background: #012442;
+    background: #002c53;
 }
-.alt_text_wrap{
-    padding:60px 0px;
+.alt_text_wrap {
+    padding: 5px 10px 15px 10px;
+}
+.sidebar-module {
+    padding: 10px;
+    border-bottom: 1px solid #002c53;
+    margin-bottom: 20px;
+}
+.sidebar-module h4{
+    text-transform: capitalize;
+}
+.sidebar-module:last-child{
+      border-bottom: 0px solid #002c53;
 }

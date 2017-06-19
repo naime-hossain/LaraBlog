@@ -159,7 +159,7 @@ class PostsController extends Controller
             // $input=$request->except('new_cat');
             unset($input['new_cat']);
         }else{
-           
+          
            $category=Category::Create(['name'=>$input['new_cat']]);
            $input['category_id']=$category->id;
            unset($input['new_cat']);
