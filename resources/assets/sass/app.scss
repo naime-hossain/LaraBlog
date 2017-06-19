@@ -102,7 +102,7 @@ img.raised{
     margin-top: 5px;
 }
 .body_wrap {
-    padding: 0px 0px 60px 0px;
+      padding: 60px 0px 60px 0px;
     background: #1d3a4c;
     color: #fff;
 }
@@ -187,6 +187,6 @@ a, a:hover, a:focus {
 option {
     background: #1d3a4c;
 }
-.form-group.is-focused label{
+.form-group.is-focused label,.form-group.is-focused label.control-label{
     color: #fd7a60;
 }

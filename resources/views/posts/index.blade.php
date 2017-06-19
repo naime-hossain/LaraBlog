@@ -33,16 +33,23 @@
 	 						   <span>
 	 							 <i class="fa fa-clock-o"></i>
 	 							  {{ $post->created_at->diffForHumans() }}
-	 							</span>||
-	 							
-	 							   <span>
+	 							</span>||<span>
 	 							 <i class="fa fa-tag"></i>
+	 							  @if ($post->category)
+	 							  	{{-- expr --}}
+
 				                  <a href="{{ route('archive.category',$post->category->name) }}" title="">
-				                     {{ $post->category_id==0?'uncategorized':$post->category->name }}
-				                    
+				                     {{$post->category->name }}
+				                   
 				                  </a>
-					 							 
-	 							</span>||
+					 				@else
+					 				 <a href="{{ route('archive.category','uncategorized') }}" title="">
+				                     uncategorized
+				                   
+				                  </a>			
+	 							  @endif
+	 							  </span>
+	 							  ||
 	 							 <span>
 	 							 <i class="fa fa-edit"></i>
 	 							  {{count($post->comments)==0?'0':count($post->comments) }}

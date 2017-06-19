@@ -18,7 +18,6 @@
         @include('alert.success')
     @endif
 
-
  {!! Form::open(['action'=>'PostsController@store','method'=>'post','files' => true]) !!}
 
    <div class="form-group col-md-12 {{ $errors->has('title') ? ' has-error' : '' }}">
@@ -29,6 +28,10 @@
     <div class="form-group col-md-6">
        {!! Form::label('category','Select Category for Post', []) !!}
    	 {!! Form::select('category_id',count($categories)>0?$categories:[0=>'uncategorized'],'', ['placeholder' => 'Pick a category...','class'=>'form-control']) !!}
+   </div>
+    <div class="form-group col-md-6">
+       {!! Form::label('new_cat','Or Add new category', []) !!}
+     {!! Form::text('new_cat',null, ['class'=>"form-control",'value'=>old('new_cat')]) !!}
    </div>
 
     <div class="form-group col-md-6">

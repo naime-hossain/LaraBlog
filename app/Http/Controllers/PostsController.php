@@ -149,15 +149,32 @@ class PostsController extends Controller
     public function store(PostCreateRequest $request)
     {
         $input=$request->all();
+    if ($request->category_id==0) {
+        # code...
+        $category=Category::Create(['name'=>'uncategorized']);
+        $input['category_id']=$category->id;
+
+      }
+        if (trim($request->new_cat)=='') {
+            // $input=$request->except('new_cat');
+            unset($input['new_cat']);
+        }else{
+           
+           $category=Category::Create(['name'=>$input['new_cat']]);
+           $input['category_id']=$category->id;
+           unset($input['new_cat']);
+         }
+
         $user=Auth::user();
              if ($file=$request->file('photo_id')) {
             # code...
-           
-             $filename= rand(0,time()).$file->getClientOriginalName();
+             $filename= $user->name.rand(0,time()).$file->getClientOriginalName();
              $file->move('images',$filename);
              $photo=Photo::create(['image'=>$filename]);
              $input['photo_id']=$photo->id;
         }
+
+
         $new_post=new Post($input);
 
        if ($user->posts()->save($new_post)) {
