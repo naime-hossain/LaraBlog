@@ -1,8 +1,13 @@
 @extends('layouts.app')
 @section('heading')
     {{-- expr --}}
-     <h1>Mothly Archive</h1>
+     <h1>Time Archive</h1>
+    
+    @if (count($posts)>0)
     <h2>All post of {{ $month  }} , {{ $year }}</h2>
+    @else
+    <h2>There is no post of {{ $month  }} , {{ $year }}</h2>
+    @endif
 @endsection
  
  		@section('content')
@@ -68,10 +73,7 @@
  					</div>
  					 </div>
  				@endforeach
- 			@else
-              <div class="">
-              	 <h2>No post yet!!</h2>
-              </div>
+ 		
  			@endif
  		</div>
       

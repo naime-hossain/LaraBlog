@@ -6,11 +6,15 @@
 
 @endsection
 @section('content')
-   <div class="section" id="carousel">
-			<div class="container">
-				<div class="row">
+  <div class="col-md-12">
+  	@if(Session::has('message'))
+   @include('alert.success')
+   @endif
+  </div>               @if ($latests->count()>0)
+                     <div class="section" id="carousel">
+			
 					<div class="col-md-8 col-md-offset-2 text-center">
-
+                         
 						<!-- Carousel Card -->
 						<div class="card card-raised card-carousel">
 							<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -35,7 +39,7 @@
 
 									<!-- Wrapper for slides -->
 									<div class="carousel-inner">
-									@if ($latests->count()>0)
+									
 										{{-- expr --}}
 									
 									@php
@@ -83,11 +87,20 @@
 						</div>
 						<!-- End Carousel Card -->
                      <a class="btn btn-primary text-center" href="{{ route('posts.index') }}" title="">Read All Posts</a> 
-                     @endif
+                     
 					</div>
 				</div>
+			@else
+			<div class="col-md-8 col-md-offset-2 alt_text_wrap text-center">
+				<h2>This is the place of sharing thoughts</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 			</div>
-		</div>
+			@endif
            
      
 @endsection

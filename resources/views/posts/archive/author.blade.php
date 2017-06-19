@@ -2,7 +2,12 @@
 @section('heading')
     {{-- expr --}}
      <h1>Author Archive</h1>
+    
+      @if (count($posts)>0)
     <h2>All post of {{ $user->name  }}</h2>
+    @else
+    <h2>There is no post by {{ $user->name  }}</h2>
+    @endif
 @endsection
  
  		@section('content')
@@ -62,10 +67,7 @@
  					</div>
  					 </div>
  				@endforeach
- 			@else
-              <div class="">
-              	 <h2>No post yet!!</h2>
-              </div>
+ 		
  			@endif
  		</div>
       

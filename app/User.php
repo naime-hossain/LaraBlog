@@ -49,6 +49,7 @@ class User extends Authenticatable
     }
 
       public function isactive(){
+
          if ($this->is_active==1) {
              # code...
             return true;
@@ -58,30 +59,45 @@ class User extends Authenticatable
       }
 
       public function isadmin(){
-         if ($this->role->name=='administrator') {
+           if ($this->role) {
+               # code...
+              if ($this->role->name=='administrator') {
              # code...
             return true;
          }else{
             return false;
          }
+           }
+           return false;
+       
       }
 
            public function isauthor(){
-         if ($this->role->name=='author') {
+             if ($this->role) {
+               # code...
+                  if ($this->role->name=='author') {
              # code...
             return true;
          }else{
             return false;
          }
+           }
+           return false;
+       
       }
 
       public function issubscriber(){
-         if ($this->role->name=='subscriber') {
+         if ($this->role) {
+               # code...
+               if ($this->role->name=='subscriber') {
              # code...
             return true;
          }else{
             return false;
          }
+           }
+           return false;
+      
       }
 
 

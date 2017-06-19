@@ -1,7 +1,12 @@
 @extends('layouts.app')
 @section('heading')
     {{-- expr --}}
+    @if (count($posts)>0)
     <h1>All Posts Are Listed here</h1>
+    @else
+    <h1>There is no post to display</h1>
+    @endif
+    
 @endsection
  
  		@section('content')
@@ -65,10 +70,7 @@
  					</div>
  					 </div>
  				@endforeach
- 			@else
-              <div class="">
-              	 <h2>No post yet!!</h2>
-              </div>
+ 			
  			@endif
  		</div>
 
