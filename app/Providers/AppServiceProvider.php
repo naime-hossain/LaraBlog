@@ -25,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with('latests',\App\Post::recent_post());
         });
+          view()->composer('welcome',function($view){
+
+            $view->with('latests',\App\Post::recent_post());
+        });
     }
 
     /**
