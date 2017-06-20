@@ -1,5 +1,6 @@
 body {
   color: black;
+  font-family: "raleway", "Helvetica", "Arial", sans-serif;
 }
 
 .navbar-default .navbar-brand {
@@ -24,11 +25,11 @@ img.raised {
 .form-control,
 .form-group .form-control {
   border: 0;
-  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#4CAF50, #4caf50);
+  background-image: linear-gradient(#4CAF50, #4CAF50), linear-gradient(#4CAF50, #4caf50);
 }
 
 #navbar {
-    background-color: #9C27B0;
+    background-color: #4CAF50;
     margin-bottom: 0px;
     padding: 0px;
 }
@@ -36,7 +37,7 @@ img.raised {
 .user-section {
     margin-top: 20px;
     font-size: 22px;
-    background-color: #9C27B0;
+    background-color: #4CAF50;
     overflow: hidden;
     border-bottom: none;
     text-transform: capitalize;
@@ -61,16 +62,16 @@ img.raised {
 }
 
 #side-menu {
-  background-color: #9C27B0;
+  background-color: #4CAF50;
 }
 
 #wrapper {
     width: 100%;
     margin-top: 68px !important;
-    background-color: #9C27B0;
+    background-color: #4CAF50;
 }
 .navbar-static-side ul li {
-    border-bottom: 1px solid #9C27B0 !important;
+    border-bottom: 1px solid #4CAF50 !important;
 }
 #side-menu a {
     color: #fff;
