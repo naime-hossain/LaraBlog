@@ -66,13 +66,18 @@ class UserController extends Controller
     {
         //
         $user=User::whereName($name)->first();
-          $user_id=Auth::user()->id;
+        if ($user) {
+            # code...
+               $user_id=Auth::user()->id;
         //check the post is belong to logedin user or not
         if ($user_id==$user->id) {
             return view('user.edit',compact('user'));
           }else{
-            return view('user.show');
+            return redirect('/');
         }
+        }
+        return redirect('/');
+       
         
         
     }
@@ -145,7 +150,7 @@ class UserController extends Controller
     {
         //
          //
-        $user=User::find($id);
+        $user=User::findOrFail($id);
           $user_id=Auth::user()->id;
         //check the post is belong to logedin user or not
         if ($user_id==$user->id) {

@@ -12,7 +12,7 @@
 @section('content')
 
 <div class="col-md-12 text-center">
- 	<a href="/" class="btn btn-primary " title="">go home</a>
+ 	<a href="/" class="btn btn-primary" title="">go home</a>
  </div>
 
 	{{-- expr --}}

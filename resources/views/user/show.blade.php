@@ -11,12 +11,12 @@
 @endsection
  
  		@section('content')
- 
+ @if ($user)
 <div class="col-md-8">
  @if(Session::has('message'))
        @include('alert.success')
        @endif
- 			@if ($user)
+ 			
  				{{-- expr --}}
  				
  					{{-- expr --}}
@@ -58,11 +58,18 @@
  					</div>
  					
  				
- 			@else
-
- 			@endif
+ 	
  		</div>
-       
+            @else
+     <div class="col-md-8 col-md-offset-2">
+ <img src="/images/404.gif" class="img-responsive img-raised img-rounded" alt="">
+    
+
+</div>
+<div class="col-md-12 text-center">
+    <a href="/" class="btn btn-primary" title="">go home</a>
+ </div>
+            @endif
      
 @endsection
  

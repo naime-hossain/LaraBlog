@@ -34,6 +34,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                     @if (count($posts)>0)
                                       @foreach ($users as $user)
                                         <tr class="{{$user->is_active==1?'success':'warning' }}">
                                           <td>{{ $user->id }}</td>
@@ -65,6 +66,7 @@
                                             </td>
                                         </tr>
                                       @endforeach
+                                      @endif
 
 
 

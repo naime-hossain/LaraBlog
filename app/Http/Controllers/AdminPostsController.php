@@ -89,7 +89,7 @@ class AdminPostsController extends Controller
     {
         //
         $categories=Category::pluck('name','id')->all();
-        $post=Post::find($id);
+        $post=Post::findOrFail($id);
         return view('admin.posts.edit',compact('post','categories'));
     }
 
@@ -104,7 +104,7 @@ class AdminPostsController extends Controller
     {
         //
 
-        $post=Post::find($id);
+        $post=Post::findOrFail($id);
          $input=$request->all();
         $user=Auth::user();
             if ($file=$request->file('photo_id')) {
@@ -147,7 +147,7 @@ class AdminPostsController extends Controller
     public function destroy($id)
     {
         //
-            $post=Post::find($id);
+            $post=Post::findOrFail($id);
        
         if ($post) {
             File::delete($post->photo->image);

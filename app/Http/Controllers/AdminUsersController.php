@@ -82,7 +82,7 @@ class AdminUsersController extends Controller
     public function show($id)
     {
         //
-        $user=User::find($id);
+        $user=User::findOrFail($id);
         return view('admin.users.profile',compact('user'));
     }
 
@@ -96,7 +96,7 @@ class AdminUsersController extends Controller
     {
         //
         $roles=Role::pluck('name','id')->all();
-        $user=User::find($id);
+        $user=User::findOrFail($id);
         return view('admin.users.edit',compact('user','roles'));
     }
 
@@ -113,7 +113,7 @@ class AdminUsersController extends Controller
            $this->validate($request,[
             'image'=>'image',
             ]);
-        $user=User::find($id);
+        $user=User::findOrFail($id);
         $input=$request->all();
         $input['photo_id']=$user->photo_id;
 
@@ -155,7 +155,7 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         //
-        $user=User::find($id);
+        $user=User::findOrFail($id);
        
         if ($user) {
             //delete user photo from folder

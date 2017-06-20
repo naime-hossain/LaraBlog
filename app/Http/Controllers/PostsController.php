@@ -67,6 +67,7 @@ class PostsController extends Controller
     {
         //
         $user=User::whereName($name)->first();
+     
         if ($user) {
             # code...
         $posts=$user->posts;
@@ -204,7 +205,7 @@ class PostsController extends Controller
     public function show($id)
     {
         //
-        $post=Post::find($id);
+        $post=Post::findOrFail($id);
         return view('posts.show',compact('post'));
     }
 
@@ -219,7 +220,7 @@ class PostsController extends Controller
         //
 
         $categories=Category::pluck('name','id')->all();
-        $post=Post::find($id);
+        $post=Post::findOrFail($id);
             if ($post) {
                 # code...
                    $user_id=Auth::user()->id;
@@ -249,7 +250,7 @@ class PostsController extends Controller
     {
         //
 
-        $post=Post::find($id);
+        $post=Post::findOrFail($id);
 
          $input=$request->all();
         $user=Auth::user();
@@ -300,7 +301,7 @@ class PostsController extends Controller
     public function destroy($id)
     {
         //
-    $post=Post::find($id);
+    $post=Post::findOrFail($id);
           $user_id=Auth::user()->id;
                     //check the post is belong to logedin user or not
                     if ($user_id==$post->user_id)
