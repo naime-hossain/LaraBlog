@@ -74,7 +74,7 @@
                                 {{-- expr --}}
                             <li><a href="/admin" title="">admin</a></li>
                             @endif
-                             @if (Auth::user()->isauthor() && Auth::user()->isactive())
+                             @if (Auth::user()->isauthor() || Auth::user()->isadmin() && Auth::user()->isactive())
                                 {{-- expr --}}
                             <li><a href="/posts/create" title="">create post</a></li>
                             @endif

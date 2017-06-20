@@ -71,7 +71,16 @@
  					 </div>
  				@endforeach
  			
- 			@endif
+ 		@else
+     <div class="col-md-2 ">
+ <img src="/images/404.gif" class="img-responsive img-raised img-rounded" alt="">
+    
+
+</div>
+<div class="col-md-12 text-center">
+    <a href="/" class="btn btn-primary" title="">go home</a>
+ </div>
+            @endif
  		</div>
 
 

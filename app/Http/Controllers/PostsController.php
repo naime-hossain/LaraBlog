@@ -53,7 +53,7 @@ class PostsController extends Controller
         return view('user.index',compact('posts','user'));
 
         }else{
-            return back();
+             return redirect('/posts');
         }
        
     }
@@ -74,7 +74,7 @@ class PostsController extends Controller
         return view('posts.archive.author',compact('posts','user'));
 
         }else{
-            return back();
+             return redirect('/posts');
         }
        
     }
@@ -94,7 +94,7 @@ class PostsController extends Controller
         return view('posts.archive.category',compact('posts','category'));
 
         }else{
-            return back();
+             return redirect('/posts');
         }
        
     }
@@ -123,7 +123,7 @@ class PostsController extends Controller
    return view('posts.archive.time',compact('posts','month','year'));
 
         }else{
-            return back();
+            return redirect('/posts');
         }
        
     }
