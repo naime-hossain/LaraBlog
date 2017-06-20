@@ -17,6 +17,11 @@
     <link href="/css/style.css" rel="stylesheet"/>
 </head>
 <body>
+ <div id="preloader">
+        <div id="status">
+            &nbsp;
+        </div>
+    </div>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top ">
             <div class="container">
@@ -32,7 +37,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand fa fa-3x" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'Larablog') }}
                     </a>
                 </div>
 

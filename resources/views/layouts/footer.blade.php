@@ -6,11 +6,18 @@
     	</div>
     </div>
     <!-- Scripts -->
+
     <script src="{{ asset('js/app.js') }}"></script>
+   
+    {{--  <script src="/js/jquery-2.1.1.min.js">
+    </script>  --}}
+     <script src="/js/jquery.nicescroll.min.js">
+    </script> 
         <script src="/js/material.min.js"></script>
 
 
     <!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
     <script src="/js/material-kit.js" type="text/javascript"></script>
+    <script src="/js/custom.js" type="text/javascript"></script>
 </body>
 </html>
