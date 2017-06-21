@@ -70,7 +70,7 @@
  					</div>
  					 </div>
  				@endforeach
- 			
+ 			  {{ $posts->links() }}
  		@else
      <div class="col-md-2 ">
  <img src="/images/404.gif" class="img-responsive img-raised img-rounded" alt="">
