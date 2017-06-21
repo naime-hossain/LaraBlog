@@ -61,10 +61,10 @@
                                          @if ($n==0)
                                          	{{-- expr --}}
                                     	<div class="item active">
-									<img src="/{{ $post->photo->image }}" alt="Awesome Image">
+									<img class="img-responsive" src="/{{ $post->photo->image }}" alt="Awesome Image">
 									<div class="carousel-caption">
 										<h4>{{ $post->title }}</h4>
-											{{-- <a class="btn btn-primary" href="{{ route('posts.show',$post->id) }}" title="">Read This</a> --}}
+											<a class="btn btn-primary" href="{{ route('posts.show',$post->id) }}" title="">Read This</a>
 									</div>
 										</div>
 										@php
@@ -73,10 +73,10 @@
                                          @else
 
                                     	<div class="item">
-											<img src="/{{ $post->photo->image }}" alt="Awesome Image">
+											<img class="img-responsive" src="/{{ $post->photo->image }}" alt="Awesome Image">
 											<div class="carousel-caption">
 												<h4>{{ $post->title }}</h4>
-												{{-- <a class="btn btn-primary" href="{{ route('posts.show',$post->id) }}" title="">Read This</a> --}}
+												<a class="btn btn-primary" href="{{ route('posts.show',$post->id) }}" title="">Read This</a>
 											</div>
 										</div>
 										@endif
@@ -97,7 +97,7 @@
 							</div>
 						</div>
 						<!-- End Carousel Card -->
-                     <a class="btn btn-primary text-center" href="{{ route('posts.index') }}" title="">Read All Posts</a> 
+                     {{-- <a class="btn btn-primary text-center" href="{{ route('posts.index') }}" title="">Read All Posts</a>  --}}
                      
 					</div>
 				</div>

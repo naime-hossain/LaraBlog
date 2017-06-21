@@ -70,7 +70,7 @@ class PostsController extends Controller
      
         if ($user) {
             # code...
-        $posts=$user->posts;
+        $posts=$user->posts()->paginate(2);
         return view('posts.archive.author',compact('posts','user'));
 
         }else{
@@ -90,7 +90,7 @@ class PostsController extends Controller
         $category=Category::whereName($name)->first();
         if ($category) {
             # code...
-        $posts=$category->posts;
+        $posts=$category->posts()->paginate(2);
         return view('posts.archive.category',compact('posts','category'));
 
         }else{
@@ -118,6 +118,11 @@ class PostsController extends Controller
          if ( $year=request('year')) {
            $posts->whereYear('created_at', Carbon::parse($year)->year);
        }
+
+         
+       // if ( $month=request('month') || $year=request('year')) {
+       //     $posts->whereMonth('created_at', Carbon::parse($month)->month)->whereYear('created_at', Carbon::parse($year)->year);
+       // }
        $posts=$posts->get();
 
    return view('posts.archive.time',compact('posts','month','year'));

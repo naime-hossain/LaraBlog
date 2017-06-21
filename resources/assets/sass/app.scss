@@ -276,3 +276,16 @@ option {
     margin: -100px 0 0 -100px;
     /* is width and height divided by two */
 }
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+    background-color: #fd7a60;
+    border-color: #fd7a60;
+    color: #FFFFFF;
+    box-shadow: 0 4px 5px 0 rgba(253, 122, 96, 0.17), 0 1px 10px 0 rgba(156, 39, 176, 0.12), 0 2px 4px -1px rgba(253, 122, 96, 0.46);
+}
+.carousel .carousel-control {
+    width: 10%;
+}
+.carousel-control.right,.carousel-control.left {
+    background-repeat:no-repeat !important;
+}
+   
