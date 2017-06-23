@@ -74,7 +74,7 @@
          
               @foreach ($users as $user)
                 {{-- expr --}}
-                @if ($user->role->name!='administrator')
+                @if ($user->role->name!='administrator' && $user->role->name!='subscriber')
                   {{-- expr --}}
                   <li>
                  <a class="" href="{{ route('archive.author',$user->name) }}">

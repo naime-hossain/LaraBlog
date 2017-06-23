@@ -21,7 +21,9 @@ class Admin
             if (Auth::user()->isadmin() && Auth::user()->isactive()) {
                 # code...
                  return $next($request);
-            }
+            }else{
+                    return redirect('/')->with('message','You are not allowed here Thanks');
+                }
         }
             return redirect('/login');
         
