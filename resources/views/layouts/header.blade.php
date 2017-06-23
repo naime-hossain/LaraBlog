@@ -52,8 +52,9 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
+                         <li class="{{ $url==route('home')?'active':'' }}"><a href="{{route('home')}}" title="">home</a></li>
                         @if (Auth::check())
-                                 <li class="dropdown">
+                                 <li class="dropdown {{ $url==route('user.show',Auth::user()->name)||$url==route('user.posts',Auth::user()->name)?'active':'' }}">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
