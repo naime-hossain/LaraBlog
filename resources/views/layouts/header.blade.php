@@ -82,18 +82,19 @@
 
                             @if (Auth::user()->isadmin())
                                 {{-- expr --}}
-                            <li class="{{ $url==route('admin.index')?'active':'' }}"><a href="/admin" title="">admin</a></li>
+                            <li><a href="/admin" title="">admin</a></li>
 
                             @endif
 
-
-
-
-                             @if (Auth::user()->isauthor() || Auth::user()->isadmin() && Auth::user()->isactive())
+                               @if (Auth::user()->isactive())
+                             @if (Auth::user()->isauthor() || Auth::user()->isadmin())
                                 {{-- expr --}}
                             <li class="{{ $url==route('posts.create')?'active':'' }}"><a href="/posts/create" title="">create post</a></li>
 
                             @endif
+                               @endif
+                                
+                         
 
 
                         @else
