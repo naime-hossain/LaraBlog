@@ -74,11 +74,15 @@
          
               @foreach ($users as $user)
                 {{-- expr --}}
-                 <li>
+                @if ($user->role->name!='administrator')
+                  {{-- expr --}}
+                  <li>
                  <a class="" href="{{ route('archive.author',$user->name) }}">
                  {{$user->name." ( ".count($user->posts)." ) "}}
                  </a>
                  </li>
+                @endif
+                 
               @endforeach
              
              

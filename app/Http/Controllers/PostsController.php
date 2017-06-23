@@ -74,7 +74,7 @@ class PostsController extends Controller
         return view('posts.archive.author',compact('posts','user'));
 
         }else{
-             return redirect('/posts');
+            return redirect('/posts')->with('message', 'This user does not exist');
         }
        
     }
@@ -94,7 +94,7 @@ class PostsController extends Controller
         return view('posts.archive.category',compact('posts','category'));
 
         }else{
-             return redirect('/posts');
+             return redirect('/posts')->with('message', 'This category does not exist');
         }
        
     }
@@ -128,7 +128,7 @@ class PostsController extends Controller
    return view('posts.archive.time',compact('posts','month','year'));
 
         }else{
-            return redirect('/posts');
+            return redirect('/posts')->with('message', 'No post found to for this time');
         }
        
     }
