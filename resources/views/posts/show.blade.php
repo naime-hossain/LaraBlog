@@ -106,22 +106,22 @@
                       {{-- expr --}}
                       @foreach ($post->comments as $comment)
                         {{-- expr --}}
-                        <div class="sinle_comment_wrap">
+            <div class="sinle_comment_wrap">
               <!-- answer to the first comment -->
 
-              <div class="media-heading">
-                <button class="btn btn-default btn-collapse btn-xs" type="button" data-toggle="collapse" data-target="#collapse{{ $comment->id }}" aria-expanded="false" aria-controls="collapseExample"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> <span class="">
-                <img class="img-raised img-rounded" height="20" src="/{{ $comment->user->photo->image }}" alt="">
-                </span> 
-                 @if (Auth::check())
-                  {{-- expr --}}
-                  {{ Auth::user()->id==$comment->user->id?' you ':$comment->user->name }} said
-                  @else
-                  {{ $comment->user->name }} Said
-                @endif 
-                
-              
-              </div>
+                  <div class="media-heading">
+                    <button class="btn btn-default btn-collapse btn-xs" type="button" data-toggle="collapse" data-target="#collapse{{ $comment->id }}" aria-expanded="false" aria-controls="collapseExample"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> <span class="">
+                    <img class="img-raised img-rounded" height="20" src="/{{ $comment->user->photo->image }}" alt="">
+                    </span> 
+                     @if (Auth::check())
+                      {{-- expr --}}
+                      {{ Auth::user()->id==$comment->user->id?' you ':$comment->user->name }} said
+                      @else
+                      {{ $comment->user->name }} Said
+                    @endif 
+                    
+                  
+                  </div>
 
               <div class="panel-collapse collapse in" id="collapse{{ $comment->id }}">
 
@@ -137,47 +137,22 @@
                     @if (Auth::user()->id==$comment->user->id)
                   {{-- expr --}}
                   <span>
-                {!! Form::open(['action'=>['CommentsController@destroy',$comment->id],'method'=>'delete','class'=>'sm-form']) !!}
+                {!! Form::open(['action'=>['CommentsController@destroy',$comment->id],
+                'method'=>'delete']) !!}
                 {!! Form::button("<i class='fa fa-trash-o'></i>",
                  [
                  'class'=>'btn btn-danger btn-small',
                  'onclick'=>"return confirm('want to delete?')",
                  'type'=>'submit'
                  ]) !!}
+                 {!! Form::close() !!}
+
                   </span>
                 @endif
                 @endif
               
                 </div>
-             {{--      <div class="comment-meta">
-                    <span><a class="btn btn-default" href="#">delete</a></span>
-                    <span><a class="btn btn-default" href="#">view</a></span>
-                  
-                    <span>
-                      <a class="btn btn-default" class="" role="button" data-toggle="collapse" href="#replyCommentFive" aria-expanded="false" aria-controls="collapseExample">replay to this</a>
-                    </span>
-                    <div class="collapse" id="replyCommentFive">
-                      @if (Auth::check())
-                   
-                    {!! Form::open(['action'=>'PostsController@store','method'=>'post']) !!}
-                    <div class="form-group col-md-12 {{ $errors->has('body') ? ' has-error' : '' }}">
-                      {!! Form::label('Reply body','Reply body', []) !!}
-                     {!! Form::textarea('body',null,['class'=>'form-control','value'=>old('body'),'rows'=>5]) !!}
-                   </div>
-                   <div class="form-group col-md-12">
-                     {!! Form::submit('Reply', ['class'=>'btn btn-primary']) !!}
-                   </div>
-   
-
-                  {!! Form::close() !!}
-                  @else
-                  <div class="alert alert-success">
-                    <h3>Please log in to Reply</h3>
-                  </div>
-                 @endif
-                    </div>
-                  </div> --}}
-                  <!-- comment-meta -->
+       
 
                      </div>
                    </div>
