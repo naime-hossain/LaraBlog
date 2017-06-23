@@ -46,7 +46,9 @@
                     <ul class="nav navbar-nav">
                         &nbsp;
                     </ul>
-
+                             @php
+                                $url=url()->current();
+                             @endphp
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
@@ -75,20 +77,32 @@
                                 </ul>
                             </li>
                            {{--  <li><a href="/home" title="">home</a></li> --}}
+
+
                             @if (Auth::user()->isadmin())
                                 {{-- expr --}}
-                            <li><a href="/admin" title="">admin</a></li>
+                            <li class="{{ $url==route('admin.index')?'active':'' }}"><a href="/admin" title="">admin</a></li>
+
                             @endif
+
+
+
+
                              @if (Auth::user()->isauthor() || Auth::user()->isadmin() && Auth::user()->isactive())
                                 {{-- expr --}}
-                            <li><a href="/posts/create" title="">create post</a></li>
+                            <li class="{{ $url==route('posts.create')?'active':'' }}"><a href="/posts/create" title="">create post</a></li>
+
                             @endif
+
+
                         @else
-                       <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
+                        <li class="{{ $url==route('login')?'active':'' }}"><a href="{{ route('login') }}">Login</a></li>
+                        <li class="{{ $url==route('register')?'active':'' }}"><a href="{{ route('register') }}">Register</a></li>
                         
                         @endif
-                        <li><a href="{{ route('posts.index') }}">Posts</a></li>
+
+
+                        <li class="{{ $url==route('posts.index')?'active':'' }}"><a href="{{ route('posts.index') }}">Posts</a></li>
                     </ul>
                 </div>
             </div>
