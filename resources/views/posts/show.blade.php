@@ -141,7 +141,7 @@
                 'method'=>'delete']) !!}
                 {!! Form::button("<i class='fa fa-trash-o'></i>",
                  [
-                 'class'=>'btn btn-danger btn-small',
+                 'class'=>'btn btn-danger ',
                  'onclick'=>"return confirm('want to delete?')",
                  'type'=>'submit'
                  ]) !!}
@@ -162,6 +162,8 @@
                     @endif
                  </div>
                  </div>
+               
+
                  
           
 
