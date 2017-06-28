@@ -40,13 +40,13 @@
                                          {{-- expr --}}
                                            <tr class="">
                                           <td>{{ $post->id }}</td>
-                                            <td>{{ $post->title }}</td>
+                                            <td>{{ str_limit($post->title,10) }}</td>
                                             {{-- <td>{{ substr($post->body, 0,20)  }}</td> --}}
                                             <td>{{ str_limit($post->body,10)  }}</td>
                                             <td>
                                              @if ($post->photo)
                                               {{-- expr --}}
-                                              <img height="50" width="150" src="/{{ $post->photo->image }}" alt="">
+                                              <img height="50" width="150" src="/{{ $post->photo?$post->photo->image:''}}" alt="">
                                             @endif
                                             </td>
                                             <td>@if($post->user)
@@ -80,6 +80,7 @@
                                             </td>
                                         </tr>
                                         @endforeach
+                                        {{ $posts->links() }}
                                         @else
                                           <tr>
                                             <td>no data</td>

@@ -57,6 +57,7 @@
                                             </td>
                                         </tr>
                                         @endforeach
+                                        {{ $categories->links() }}
                                         @else
                                           <tr>
                                             <td>no data</td>
