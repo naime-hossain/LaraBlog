@@ -61,7 +61,7 @@
                                          @if ($n==0)
                                          	{{-- expr --}}
                                     	<div class="item active">
-									<img class="img-responsive" src="/{{ $post->photo->image }}" alt="Awesome Image">
+									<img class="img-responsive" src="/{{ $post->photo?$post->photo->image:'' }}" alt="Awesome Image">
 									<div class="carousel-caption">
 										<h4>{{ $post->title }}</h4>
 											<a class="btn btn-primary" href="{{ route('posts.show',$post->id) }}" title="">Read This</a>
@@ -73,7 +73,7 @@
                                          @else
 
                                     	<div class="item">
-											<img class="img-responsive" src="/{{ $post->photo->image }}" alt="Awesome Image">
+											<img class="img-responsive" src="/{{ $post->photo?$post->photo->image:'' }}" alt="Awesome Image">
 											<div class="carousel-caption">
 												<h4>{{ $post->title }}</h4>
 												<a class="btn btn-primary" href="{{ route('posts.show',$post->id) }}" title="">Read This</a>

@@ -68,19 +68,22 @@
            @if (count($users)>0)
             {{-- expr --}}
                <div class="sidebar-module">
-            <h4>Users</h4>
+            <h4>Top Authors</h4>
             <ol class="list-unstyled">
 
          
               @foreach ($users as $user)
                 {{-- expr --}}
                 @if ($user->role->name!='administrator' && $user->role->name!='subscriber')
-                  {{-- expr --}}
+                  {{--show the user who has post --}}
+                  @if (count($user->posts)>=3)
                   <li>
                  <a class="" href="{{ route('archive.author',$user->name) }}">
                  {{$user->name." ( ".count($user->posts)." ) "}}
                  </a>
                  </li>
+                  @endif
+                  
                 @endif
                  
               @endforeach

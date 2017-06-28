@@ -59,7 +59,7 @@
  							</p>
  						</div>
  						<div class="post_body">
- 							<img class="img-responsive img-raised img-rounded" src="/{{ $post->photo->image  }}" alt="">
+ 							<img class="img-responsive img-raised img-rounded" src="/{{  $post->photo?$post->photo->image:''  }}" alt="">
  							<p>{{ str_limit($post->body,150) }}</p>
               <a class="btn btn-primary" href="{{ route('posts.show', $post->id) }}" title="">Read more</a>
              
