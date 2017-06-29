@@ -69,7 +69,7 @@
  							</p>
  						</div>
  						<div class="post_body">
- 							<img class="img-responsive img-raised img-rounded" src="/{{ $post->photo->image  }}" alt="">
+ 							<img class="img-responsive img-raised img-rounded" src="/{{ $post->photo?$post->photo->image:''  }}" alt="">
  							<p>{{ $post->body }}</p>
  							
  						</div>
