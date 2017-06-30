@@ -69,8 +69,8 @@
  </div>
 
 
-  <div class="form-group col-md-6">
-     {!! Form::label('Image','Select a Photo', []) !!}
+  <div class=" col-md-6">
+     {!! Form::label('image','Select a Photo', ['class'=>'btn btn-info']) !!}
  	 {!! Form::file('image', ['class'=>'form-control']) !!}
  </div>
 

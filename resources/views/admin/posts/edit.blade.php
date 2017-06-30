@@ -32,8 +32,8 @@
      {!! Form::select('category_id',$categories ,null, ['placeholder' => 'Pick a category...','class'=>'form-control']) !!}
    </div>
 
-    <div class="form-group col-md-6">
-       {!! Form::label('Image','Select a Photo', []) !!}
+    <div class="col-md-6">
+       {!! Form::label('photo_id','Select a Photo',['class'=>'btn btn-info']) !!}
      {!! Form::file('photo_id', ['class'=>'form-control']) !!}
    </div>
 

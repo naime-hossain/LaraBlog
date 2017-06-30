@@ -34,10 +34,14 @@
      {!! Form::text('new_cat',null, ['class'=>"form-control",'value'=>old('new_cat')]) !!}
    </div>
 
-    <div class="form-group col-md-6">
-       {!! Form::label('Image','Select a Photo', []) !!}
+    <div class="col-md-6">
+       {!! Form::label('photo_id','Select a Photo', ['class'=>'btn btn-info']) !!}
    	 {!! Form::file('photo_id', ['class'=>'form-control']) !!}
    </div>
+  {{--  <div class="from-group  col-md-6">
+      {!! Form::label('photo_id', 'choose a file', ['class'=>'btn btn-info']) !!}
+       {!! Form::file('photo_id', ['class'=>'form-control']) !!}
+    </div> --}}
 
     <div class="form-group col-md-12 {{ $errors->has('body') ? ' has-error' : '' }}">
        {!! Form::label('body','Post body', []) !!}
