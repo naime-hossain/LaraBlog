@@ -33,7 +33,7 @@ class PostsController extends Controller
     public function index()
     {
         //
-        $posts=Post::orderBy('created_at','desc')->paginate(8);
+        $posts=Post::orderBy('created_at','desc')->paginate(4);
         return view('posts.index',compact('posts'));
     }
 
