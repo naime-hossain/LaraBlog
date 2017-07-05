@@ -24,11 +24,7 @@
  			
  					<div class="post_wrap">
  						<div class="post_heading">
- 						<img class="img-responsive img-raised img-rounded" src="/{{ $post->photo?$post->photo->image:'' }}" alt="">
- 						</div>
- 						<div class="post_body">
- 							
- 								<h2>{{ $post->title }}</h2>
+ 							<h2>{{ $post->title }}</h2>
  							<p>
 	 							
 	 							<span> 
@@ -65,6 +61,9 @@
 	 							  Comments
 	 							</span>
  							</p>
+ 						</div>
+ 						<div class="post_body">
+ 							<img class="img-responsive img-raised img-rounded" src="/{{ $post->photo?$post->photo->image:'' }}" alt="">
  							<p>{{ str_limit($post->body,150) }}</p>
  							<a class="btn btn-primary" href="{{ route('posts.show', $post->id) }}" title="">Read more</a>
  						</div>

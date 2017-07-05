@@ -80,7 +80,7 @@ img.raised{
 .post_heading {
     margin: 20px 0px 10px;
 }
-.post_heading h1 {
+.post_heading h2 {
     text-transform: capitalize;
     font-size: 20px;
 }
@@ -290,44 +290,44 @@ option {
 }
 
 // for different post layout
-.post_wrap {
-    margin-bottom: 15px;
-    padding-bottom: 0px;
-    overflow: hidden;
-    width: 100%;
-    background: #002c53;
-    padding: 10px;
-    border-radius: 5px;
-    display: flex;
-}
-.post_heading {
-    width: 35%;
-    float: left;
-    min-height: 100%;
-    margin: 0px;
-}
-.post_body {
-    display: block;
-    width: 60%;
-    float: left;
-    margin-left: 10px;
-    /* background: #002c53; */
-    /* padding: 0px 12px; */
-}
-.post_body h2 {
-    font-size: 20px;
-    margin-bottom: 5px;
-    padding-bottom: 0px;
-    margin-top: 0px;
-}
+// .post_wrap {
+//     margin-bottom: 15px;
+//     padding-bottom: 0px;
+//     overflow: hidden;
+//     width: 100%;
+//     background: #002c53;
+//     padding: 10px;
+//     border-radius: 5px;
+//     display: flex;
+// }
+// .post_heading {
+//     width: 35%;
+//     float: left;
+//     min-height: 100%;
+//     margin: 0px;
+// }
+// .post_body {
+//     display: block;
+//     width: 60%;
+//     float: left;
+//     margin-left: 10px;
+//     /* background: #002c53; */
+//     /* padding: 0px 12px; */
+// }
+// .post_body h2 {
+//     font-size: 20px;
+//     margin-bottom: 5px;
+//     padding-bottom: 0px;
+//     margin-top: 0px;
+// }
    
-   .post_body p {
-    display: block;
-    font-size: 14px;
-    padding: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-.post_heading img {
-    min-height: 100%;
-}
+//    .post_body p {
+//     display: block;
+//     font-size: 14px;
+//     padding: 0px;
+//     margin-top: 0px;
+//     margin-bottom: 0px;
+// }
+// .post_heading img {
+//     min-height: 100%;
+// }
