@@ -30,6 +30,8 @@ Route::group(['prefix' => 'admin','middleware'=>'admin'], function() {
     Route::resource('/users','AdminUsersController');
     Route::resource('/adposts','AdminPostsController');
     Route::resource('/categories','AdminCategoriesController');
+    Route::get('/comments','AdminCommentsController@index')->name('comments.index');
+    Route::delete('/comments/{id}/destroy','AdminCommentsController@destroy')->name('comments.destroy');
 
 
 });

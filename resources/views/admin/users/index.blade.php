@@ -53,16 +53,36 @@
                                             <a class="btn btn-info" href="{{ route('users.edit',$user->id) }}">  <i class="fa fa-edit"></i> 
                                             </a>
 
-                                            {!! Form::open(['action'=>['AdminUsersController@destroy',$user->id],'method'=>'delete','class'=>'sm-form']) !!}
-                                            {!! Form::button("<i class='fa fa-trash-o'></i>",
-                                             [
-                                             'class'=>'btn btn-danger',
-                                             'onclick'=>"return confirm('want to delete?')",
-                                             'type'=>'submit'
-                                             ]) !!}
-                                            
+                    <span href="" data-toggle="modal" data-target="#deleteuser{{ $user->id }}" class="close-icon btn btn-danger" title=""><i class="fa fa-trash-o"></i></span>
+             <!-- deleteuser Modal Core -->
+          <div class="modal fade" id="deleteuser{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteuser{{ $user->id }}Label" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                
+                  <h4 class="modal-title text-center" id="deleteuser{{ $user->id }}Label">Want to remove The user?</h4>
+                <div class="modal-body">
+                    <button type="button" class="btn btn-primary pull-right 3x" data-dismiss="modal" aria-hidden="true">No</button>
+                  {!! Form::open(['action'=>['AdminUsersController@destroy',$user->id],'method'=>'delete','class'=>'sm-form']) !!}
+                    {!! Form::button("Yes",
+                     [
+                     'class'=>'btn btn-danger',
+                   
+                     'type'=>'submit'
+                     ]) !!}
+                    
 
-                                             {!! Form::close() !!}
+            
+                        
+
+                  {!! Form::close() !!}
+              </div>
+                </div>
+            
+              </div>
+            </div>
+          </div>
+       {{-- model end --}}  
                                             </td>
                                         </tr>
                                       @endforeach

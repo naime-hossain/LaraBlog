@@ -288,7 +288,10 @@ option {
 .carousel-control.right,.carousel-control.left {
     background-repeat:no-repeat !important;
 }
-
+.modal-content {
+    position: relative;
+    background-color: #002546;
+}
 // for different post layout
 // .post_wrap {
 //     margin-bottom: 15px;

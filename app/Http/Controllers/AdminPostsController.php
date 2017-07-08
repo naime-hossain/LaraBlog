@@ -149,12 +149,14 @@ class AdminPostsController extends Controller
         //
             $post=Post::findOrFail($id);
        
-        if ($post) {
+        if ($post->photo) {
+
             File::delete($post->photo->image);
             $old_photo=Photo::find($post->photo_id)->delete();
-             $post_delete=$post->delete();
+             
 
         }
+        $post_delete=$post->delete();
         return back()->with('message', 'User  deleted succefully');
     }
     }

@@ -1,4 +1,4 @@
-body {
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   color: black;
   font-family: "raleway", "Helvetica", "Arial", sans-serif;
 }
@@ -46,7 +46,7 @@ img.raised {
 .user-section-inner img {
     margin-left: 10px;
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 .user-section-inner {
     height: 200px;
