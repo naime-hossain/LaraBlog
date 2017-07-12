@@ -2,7 +2,8 @@
 @section('heading')
     {{-- expr --}}
     <h1>Welcome to Larablog </h1>
-    <a href="http://naimehossain.com" class="text-info btn btn-simple">Naime Hossain</a>
+    <p>WRITE LIKE THERE'S NO RULE</p>
+   {{--  <a href="http://naimehossain.com" class="text-info btn btn-simple">Naime Hossain</a> --}}
 
 @endsection
 @section('content')

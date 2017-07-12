@@ -51,7 +51,7 @@ class UserController extends Controller
     public function show($name)
     {
         //
-        $user=User::whereName($name)->first();
+        $user=User::whereName($name)->firstOrFail();
 
         return view('user.show',compact('user'));
     }
@@ -65,7 +65,7 @@ class UserController extends Controller
     public function edit($name)
     {
         //
-        $user=User::whereName($name)->first();
+        $user=User::whereName($name)->firstOrFail();
         if ($user) {
             # code...
                $user_id=Auth::user()->id;
@@ -95,7 +95,7 @@ class UserController extends Controller
           $this->validate($request,[
             'image'=>'image',
             ]);
-         $user=User::whereName($name)->first();
+         $user=User::whereName($name)->firstOrFail();
           $user_id=Auth::user()->id;
         //check the profile is belong to logedin user or not
         if ($user_id==$user->id) {

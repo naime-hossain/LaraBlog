@@ -46,7 +46,7 @@ class PostsController extends Controller
     public function userPosts($name)
     {
         //
-        $user=User::whereName($name)->first();
+        $user=User::whereName($name)->firstOrFail();
         if ($user) {
             # code...
         $posts=$user->posts;
@@ -66,7 +66,7 @@ class PostsController extends Controller
     public function authorArchive($name)
     {
         //
-        $user=User::whereName($name)->first();
+        $user=User::whereName($name)->firstOrFail();
      
         if ($user) {
             # code...
@@ -87,7 +87,7 @@ class PostsController extends Controller
     public function categoryArchive($name)
     {
         //
-        $category=Category::whereName($name)->first();
+        $category=Category::whereName($name)->firstOrFail();
         if ($category) {
             # code...
         $posts=$category->posts()->paginate(2);

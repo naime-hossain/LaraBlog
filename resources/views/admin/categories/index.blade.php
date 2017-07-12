@@ -73,7 +73,7 @@
        {{-- model end --}} 
                                             
 
-                                             {!! Form::close() !!}
+                                             
                                             </td>
                                         </tr>
                                         @endforeach

@@ -4,9 +4,9 @@
      <h1>Time Archive</h1>
     
     @if (count($posts)>0)
-    <h2>All post of {{ $month  }} , {{ $year }}</h2>
+    <p>All post of {{ $month  }} , {{ $year }}</p>
     @else
-    <h2>There is no post of {{ $month  }} , {{ $year }}</h2>
+    <p>There is no post of {{ $month  }} , {{ $year }}</p>
     @endif
 @endsection
  
@@ -25,7 +25,7 @@
  					
  					<div class="post_wrap">
  						<div class="post_heading">
- 							<h1>{{ $post->title }}</h1>
+ 							<h2>{{ $post->title }}</h2>
  							<p>
 	 						
 	 					       <span> 
