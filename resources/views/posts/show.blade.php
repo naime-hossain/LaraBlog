@@ -28,23 +28,26 @@
  					 
  					 	
  					
- 					<div class="post_wrap">
+ 					<div class="single_post_wrap">
  						<div class="post_heading">
+ 							<img class="img-responsive img-raised img-rounded" src="/{{ $post->photo?$post->photo->image:''  }}" alt="">
  							
+ 						</div>
+ 						<div class="post_body">
  							<p>
-	 						
-	 							 <span> 
+              
+                 <span> 
                  <i class="fa fa-user"></i>
                   <a href="{{ route('archive.author',$post->user->name) }}" title="">
                      {{ $post->user->name }}
                   </a>
                  
                 </span>||
-	 						  
-	 						   <span>
-	 							 <i class="fa fa-clock-o"></i>
-	 							  {{ $post->created_at->diffForHumans() }}
-	 							</span>||
+                
+                 <span>
+                 <i class="fa fa-clock-o"></i>
+                  {{ $post->created_at->diffForHumans() }}
+                </span>||
                      <span>
                  <i class="fa fa-tag"></i>
                   @if ($post->category)
@@ -66,10 +69,7 @@
                   {{count($post->comments)==0?'0':count($post->comments) }}
                   Comments
                 </span>
- 							</p>
- 						</div>
- 						<div class="post_body">
- 							<img class="img-responsive img-raised img-rounded" src="/{{ $post->photo?$post->photo->image:''  }}" alt="">
+              </p>
  							<p>{{ $post->body }}</p>
  							
  						</div>
@@ -81,7 +81,7 @@
                   <div class="commnet_form">
                     
                  
-                  <h2 class="panel text-center panel-success">Any thought About this post?</h2>
+                  <p class="panel text-center panel-success">Any thought About this post?</p>
                  @if (Auth::check())
                    {{-- expr --}}
                     {!! Form::open(['action'=>['CommentsController@store',$post->id],'method'=>'post']) !!}
@@ -101,7 +101,7 @@
                   </div>
                  @endif
                   </div>
-	                   <h2 class="panel text-center panel-success">{{ count($post->comments) }} Comments In this post</h2>
+	                   <p class="panel text-center panel-success">{{ count($post->comments) }} Comments In this post</p>
 	                  @if (count($post->comments)>0)
                       {{-- expr --}}
                       @foreach ($post->comments as $comment)

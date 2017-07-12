@@ -23,7 +23,7 @@
  					 	
  					<div class="post_wrap">
  					
- 						<div class="post_body ">
+ 						<div class=" ">
                           <div class="col-md-4">
                               
                         
