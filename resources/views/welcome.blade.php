@@ -12,7 +12,7 @@
    @include('alert.success')
    @endif
   </div>  
-
+               
 
                @if ($latests->count()>0)
                      <div class="" id="carousel">
@@ -22,8 +22,8 @@
                          
 						<!-- Carousel Card -->
 						<div class="card card-raised card-carousel">
-							<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-								<div class="carousel slide" data-ride="carousel">
+							<div id="home_slider" class="carousel slide" data-ride="carousel">
+								
                                   
 									<!-- Indicators -->
 							{{-- 		<ol class="carousel-indicators">
@@ -32,9 +32,9 @@
 									 
 									 	@if ($i==0)
 									 		
-                                         	<li data-target="#carousel-example-generic" data-slide-to="{{ $i }}" class="active"></li>
+                                         	<li data-target="#home_slider" data-slide-to="{{ $i }}" class="active"></li>
 									 	@else
-									 		<li data-target="#carousel-example-generic" data-slide-to="{{ $i }}"></li>
+									 		<li data-target="#home_slider" data-slide-to="{{ $i }}"></li>
 									 		@endif
 									 	
 									 @endfor
@@ -45,35 +45,18 @@
 									<!-- Wrapper for slides -->
 									<div class="carousel-inner">
 									
-										{{-- expr --}}
 									
-									@php
-										$n=0;
-									@endphp
 									  @foreach ($latests as $post)
-                                    	{{-- expr --}}
-                                         @if ($n==0)
-                                         	{{-- expr --}}
-                                    	<div class="item active">
+                                    
+                                    	<div class="item {{ $loop->index==0?'active':'' }}">
 									<img class="img-responsive" src="/{{ $post->photo?$post->photo->image:'' }}" alt="Awesome Image">
 									<div class="carousel-caption">
 										<h4>{{ $post->title }}</h4>
 											<a class="btn btn-primary" href="{{ route('posts.show',$post->id) }}" title="">Read This</a>
 									</div>
 										</div>
-										@php
-											$n++;
-										@endphp
-                                         @else
-
-                                    	<div class="item">
-											<img class="img-responsive" src="/{{ $post->photo?$post->photo->image:'' }}" alt="Awesome Image">
-											<div class="carousel-caption">
-												<h4>{{ $post->title }}</h4>
-												<a class="btn btn-primary" href="{{ route('posts.show',$post->id) }}" title="">Read This</a>
-											</div>
-										</div>
-										@endif
+								
+										
 									
                                     @endforeach
 							
@@ -81,13 +64,13 @@
 									</div>
 
 									<!-- Controls -->
-									<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+									<a class="left carousel-control" href="#home_slider" data-slide="prev">
 										
 									</a>
-									<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+									<a class="right carousel-control" href="#home_slider" data-slide="next">
 										<i class="material-icons">keyboard_arrow_right</i>
 									</a>
-								</div>
+								
 							</div>
 						</div>
 						<!-- End Carousel Card -->
