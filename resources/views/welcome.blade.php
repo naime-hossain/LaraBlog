@@ -21,7 +21,7 @@
 					{{-- <h2>Recent Posts</h2> --}}
                          
 						<!-- Carousel Card -->
-						<div class="card card-raised card-carousel">
+						<div class="card card-raised img-rounded card-carousel">
 							<div id="home_slider" class="carousel slide" data-ride="carousel">
 								
                                   

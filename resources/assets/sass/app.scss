@@ -76,30 +76,30 @@ img.raised{
     min-height: 300px;
 }
 
-.post_wrap{}
-.post_heading {
-    margin: 20px 0px 10px;
-}
-.post_heading h2 {
-    text-transform: capitalize;
-    font-size: 20px;
-}
-.post_heading p{text-transform: capitalize;}
-.post_heading p span{text-transform: capitalize;}
-.post_heading p span i {
-    /* display: block; */
-    padding: 3px;
-    margin-left: 3px;
-    /* margin-right: 3px; */
-}
-.post_body{display: block;}
-.post_body img{display: block;}
-.post_body p {
-    display: block;
-    font-size: 14px;
-    padding: 10px 0px;
-    margin-top: 5px;
-}
+// .post_wrap{}
+// .post_heading {
+//     margin: 20px 0px 10px;
+// }
+// .post_heading h2 {
+//     text-transform: capitalize;
+//     font-size: 20px;
+// }
+// .post_heading p{text-transform: capitalize;}
+// .post_heading p span{text-transform: capitalize;}
+// .post_heading p span i {
+//     /* display: block; */
+//     padding: 3px;
+//     margin-left: 3px;
+//     /* margin-right: 3px; */
+// }
+// .post_body{display: block;}
+// .post_body img{display: block;}
+// .post_body p {
+//     display: block;
+//     font-size: 12px;
+//     padding: 10px 0px;
+//     margin-top: 5px;
+// }
 .body_wrap {
       padding: 60px 0px 60px 0px;
     // background: #1d3a4c;
@@ -327,7 +327,7 @@ option {
    
    .post_body p {
     display: block;
-    font-size: 14px;
+    font-size: 12px;
     padding: 0px;
     margin-top: 0px;
     margin-bottom: 0px;

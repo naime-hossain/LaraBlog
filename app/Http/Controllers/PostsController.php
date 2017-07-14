@@ -70,7 +70,7 @@ class PostsController extends Controller
      
         if ($user) {
             # code...
-        $posts=$user->posts()->paginate(2);
+        $posts=$user->posts()->paginate(4);
         return view('posts.archive.author',compact('posts','user'));
 
         }else{
@@ -90,7 +90,7 @@ class PostsController extends Controller
         $category=Category::whereName($name)->firstOrFail();
         if ($category) {
             # code...
-        $posts=$category->posts()->paginate(2);
+        $posts=$category->posts()->paginate(4);
         return view('posts.archive.category',compact('posts','category'));
 
         }else{
