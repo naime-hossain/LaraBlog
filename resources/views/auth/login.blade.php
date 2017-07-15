@@ -11,7 +11,10 @@
           @include('alert.error')
         @endif
             <div class="panel panel-default">
-                <div class="panel-heading"></div>
+                <div class="panel-heading text-center">
+                    <h3>Email:hossain.naime@yahoo.com</h3>
+                    <h3>password:naime06</h3>
+                </div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
