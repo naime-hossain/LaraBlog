@@ -1,7 +1,7 @@
    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
             <h4>About</h4>
-            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            <p>Larablog is a web application which is develped with Laravel.In this Platform you can share your thoughts.A simple application where you may find some lackings,if you want me to impeove it then let me know.Thanks</p>
           </div>
           @if (count($latests)>0)
             {{-- expr --}}
@@ -96,9 +96,9 @@
           <div class="sidebar-module">
             <h4>find me</h4>
             <ol class="list-unstyled">
-              <li><a href="http://github.com/naime-hossain">GitHub</a></li>
-              <li><a href="http://twiiter.com/naime-hossain">Twitter</a></li>
-              <li><a href="http://facebook.com/naime-hossain">Facebook</a></li>
+              <li><a href="https://github.com/naime-hossain">GitHub</a></li>
+              <li><a href="https://twitter.com/NaimeH_B">Twitter</a></li>
+              <li><a href="https://www.facebook.com/naime.hossain.3">Facebook</a></li>
             </ol>
           </div>
 
