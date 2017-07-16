@@ -16,8 +16,8 @@ mix.sass('resources/assets/sass/app.scss', 'public/css/style.css');
 
 mix.combine([
     "node_modules/jquery/dist/jquery.js", 
-    "resources/assets//js/jquery.nicescroll.min.js", 
-    "resources/assets//js/material.min.js", 
-    "resources/assets//js/material-kit.js", 
-    "resources/assets//js/material-kit.js",
+    "resources/assets/js/jquery.nicescroll.min.js", 
+    "resources/assets/js/material.min.js", 
+    "resources/assets/js/material-kit.js", 
+    "resources/assets/js/material-kit.js",
 ], 'public/assets/js/app.js');
