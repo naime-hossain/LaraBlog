@@ -11,13 +11,19 @@ const { mix } = require('laravel-mix');
  |
  */
 
-mix.sass('resources/assets/sass/app.scss', 'public/css/style.css');
+
+ mix.sass('resources/assets/sass/app.scss', 'public/css/style.css');
+ 
+
+ mix.combine([
+     "node_modules/jquery/dist/jquery.js", 
+     "node_modules/bootstrap/dist/js/bootstrap.min.js", 
+    "public/js/jquery.nicescroll.min.js", 
+    "public/js/material.min.js", 
+     "public/js/material-kit.js", 
+     "public/js/custom.js", 
+     ], 
+    'public/assets/js/app.js'
 
 
-mix.combine([
-    "node_modules/jquery/dist/jquery.js", 
-    "resources/assets/js/jquery.nicescroll.min.js", 
-    "resources/assets/js/material.min.js", 
-    "resources/assets/js/material-kit.js", 
-    "resources/assets/js/material-kit.js",
-], 'public/assets/js/app.js');
+ );
