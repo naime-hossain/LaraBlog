@@ -11,5 +11,21 @@ const { mix } = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css/style.css');
+// mix.js('resources/assets/js/app.js', 'public/js')
+//    .sass('resources/assets/sass/app.scss', 'public/css/style.css');
+ mix.sass('resources/assets/sass/app.scss', 'public/css/style.css');
+ 
+
+ mix.combine([
+     "node_modules/jquery/dist/jquery.js", 
+     "node_modules/bootstrap/dist/js/bootstrap.min.js", 
+    "public/js/jquery.nicescroll.min.js", 
+    "public/js/material.min.js", 
+     "public/js/material-kit.js", 
+     "public/js/custom.js", 
+     ], 
+    'public/assets/js/app.js'
+
+
+ );
+ // mix.combine(['one.js', 'two.js'], 'merged.js');
