@@ -13,6 +13,8 @@
               $("html").niceScroll({
                cursorcolor:"#002c53"
         });
+
+          tinymce.init({ selector:'#textarea' });
         });   
 
    

@@ -4,5 +4,6 @@
   "/css/style.css": "/css/style.css",
   "/mix.js": "/mix.js",
   "/assets/js/app.js": "/assets/js/app.js",
-  "merged.js": "merged.js"
+  "merged.js": "merged.js",
+  "/assets/css/app.css": "/assets/css/app.css"
 }

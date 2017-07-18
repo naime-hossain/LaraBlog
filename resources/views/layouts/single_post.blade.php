@@ -44,7 +44,7 @@
  							</p>
  						  </div>
  							
- 							<p>{{ str_limit($post->body,150) }}</p>
+ 							<p>{!! str_limit($post->body,150) !!}</p>
  							<a class="btn btn-primary" href="{{ route('posts.show', $post->id) }}" title="">Read more</a>
  						</div>
  					</div>

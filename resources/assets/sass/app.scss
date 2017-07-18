@@ -7,7 +7,7 @@
 
 // // Bootstrap
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-body{color:#eee;font-size:12px;font-family: "raleway", "Helvetica", "Arial", sans-serif;background:#002c53;}
+body{color:#eee;font-size:14px;font-family: "raleway", "Helvetica", "Arial", sans-serif;background:#002c53;}
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
     font-family: "raleway", "Helvetica", "Arial", sans-serif;
     font-weight: 400;
@@ -327,11 +327,12 @@ option {
    
    .post_body p {
     display: block;
-    font-size: 12px;
+    font-size: 14px;
     padding: 0px;
     margin-top: 0px;
     margin-bottom: 0px;
     margin: 10px 0px;
+   
 }
 .post_heading img {
     min-height: 100%;

@@ -70,7 +70,7 @@
                   Comments
                 </span>
               </p>
- 							<p>{{ $post->body }}</p>
+ 							<p>{!! $post->body !!}</p>
  							
  						</div>
  					</div>
