@@ -6,7 +6,7 @@
   </div>
   <div class="row">
   	 <div class="col-md-6">
-  	 	<img src="/{{ $user->photo->image }}" class="img-responsive img-rounded" alt="">
+  	 	<img src="/images/{{ $user->photo->image }}" class="img-responsive img-rounded" alt="">
   	 </div>
   	 <div class="col-md-6">
   	 	<h2><i class="fa fa-message"></i> {{ $user->email }} </h2>

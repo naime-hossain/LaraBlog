@@ -30,7 +30,7 @@
  					
  					<div class="single_post_wrap">
  						<div class="post_heading">
- 							<img class="img-responsive img-raised img-rounded" src="/{{ $post->photo?$post->photo->image:''  }}" alt="">
+ 							<img class="img-responsive img-raised img-rounded" src="/images/{{ $post->photo?$post->photo->image:''  }}" alt="">
  							
  						</div>
  						<div class="post_body">

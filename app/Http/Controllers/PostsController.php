@@ -10,6 +10,7 @@ use App\User;
 use App\Photo;
 use App\Category;
 use Carbon\Carbon;
+use Image;
 use Illuminate\Support\Facades\File;
 class PostsController extends Controller
 {
@@ -181,7 +182,9 @@ class PostsController extends Controller
              if ($file=$request->file('photo_id')) {
             # code...
              $filename= $user->name.rand(0,time()).$file->getClientOriginalName();
-             $file->move('images',$filename);
+             Image::make($file)->resize(300, 200)->save('images/thumbnails/'.$filename);
+             Image::make($file)->resize(1000, 700)->save('images/'.$filename);
+             // $file->move('images',$filename);
              $photo=Photo::create(['image'=>$filename]);
              $input['photo_id']=$photo->id;
         }
@@ -263,7 +266,7 @@ class PostsController extends Controller
         $user_id=Auth::user()->id;
         //check the post is belong to logedin user or not
         if ($user_id==$post->user_id) {
-            if ($file=$request->file('photo_id')) {
+        if ($file=$request->file('photo_id')) {
           
       
        
@@ -271,18 +274,21 @@ class PostsController extends Controller
        //remove old history
           if ($post->photo_id) {
               # code...
-        File::delete($post->photo->image);
-        $old_photo=Photo::find($post->photo_id)->delete();
+        File::delete('images/'.$post->photo->image);
+        File::delete('images/thumbnails/'.$post->photo->image);
+        
+        // $old_photo=Photo::find($post->photo_id)->delete();
           }
 
           //create new photo
-          $file->move('images',$filename);
+          Image::make($file)->resize(300, 200)->save('images/thumbnails/'.$filename);
+          Image::make($file)->resize(780, 500)->save('images/'.$filename);
         
-         $photo=Photo::create(['image'=>$filename]);
+         $photo=Photo::find($post->photo_id)->update(['image'=>$filename]);
         
         //excluding the image from input array
         // unset($input['image']);
-         $input['photo_id']=$photo->id;
+         unset($input['photo_id']);
         }
         //$user->posts()->whereId($id)->update($input);
 
@@ -306,19 +312,20 @@ class PostsController extends Controller
     public function destroy($id)
     {
         //
-    $post=Post::findOrFail($id);
+     $post=Post::findOrFail($id);
           $user_id=Auth::user()->id;
                     //check the post is belong to logedin user or not
                     if ($user_id==$post->user_id)
                      {
-                          if ($post)
-                                 {
-                                    File::delete($post->photo->image);
-                                    $old_photo=Photo::find($post->photo_id)->delete();
-                                    $post_delete=$post->delete();
-                                    return back()->with('message', 'post  deleted succefully');
+                      if ($post)
+                             {
+                                File::delete('images/'.$post->photo->image);
+                                File::delete('images/thumbnails/'.$post->photo->image);
+                                $old_photo=Photo::find($post->photo_id)->delete();
+                                $post_delete=$post->delete();
+                                return back()->with('message', 'post  deleted succefully');
 
-                                  }
+                              }
                     }
                     else{
                        return redirect(route('user.posts',Auth::user()->name))->with('message', 'you are not allowed to edit this post');;

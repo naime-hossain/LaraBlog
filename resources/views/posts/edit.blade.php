@@ -12,7 +12,7 @@
     
 
   <div class="col-md-4">
-    <img class="img-responsive img-rounded" src="/{{ $post->photo?$post->photo->image:'http://via.placeholder.com/350x350' }}" alt="">
+    <img class="img-responsive img-rounded" src="/images/thumbnails/{{ $post->photo?$post->photo->image:'http://via.placeholder.com/350x350' }}" alt="">
   </div>
 
  <div class="col-md-8">
@@ -44,7 +44,7 @@
 
     <div class="form-group col-md-12 {{ $errors->has('body') ? ' has-error' : '' }}">
        {!! Form::label('body','Post body', []) !!}
-     {!! Form::textarea('body',null,['class'=>'form-control','rows'=>5]) !!}
+     {!! Form::textarea('body',null,['class'=>'form-control','rows'=>20,'id'=>'textarea']) !!}
    </div>
 
 

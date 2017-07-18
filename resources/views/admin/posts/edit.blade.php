@@ -7,7 +7,7 @@
 
   </div>
   <div class="col-md-3">
-    <img class="img-responsive img-rounded" src="/{{ $post->photo?$post->photo->image:'http://via.placeholder.com/350x350' }}" alt="">
+    <img class="img-responsive img-rounded" src="/images/thumbnails/{{ $post->photo?$post->photo->image:'http://via.placeholder.com/350x350' }}" alt="{{ $post->photo_id }}">
   </div>
 
  <div class="col-md-8 col-offset-2">

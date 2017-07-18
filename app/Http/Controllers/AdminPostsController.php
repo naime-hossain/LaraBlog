@@ -9,6 +9,7 @@ use App\Post;
 use App\User;
 use App\Photo;
 use App\Category;
+use Image;
 use Illuminate\Support\Facades\File;
 class AdminPostsController extends Controller
 {
@@ -50,7 +51,9 @@ class AdminPostsController extends Controller
             # code...
            
              $filename= rand(0,time()).$file->getClientOriginalName();
-             $file->move('images',$filename);
+          Image::make($file)->resize(300, 200)->save('images/thumbnails/'.$filename);
+          Image::make($file)->resize(780, 500)->save('images/'.$filename);
+
              $photo=Photo::create(['image'=>$filename]);
              $input['photo_id']=$photo->id;
         }
@@ -115,18 +118,21 @@ class AdminPostsController extends Controller
        //remove old history
           if ($post->photo_id) {
               # code...
-        File::delete($post->photo->image);
-        $old_photo=Photo::find($post->photo_id)->delete();
+        File::delete('images/'.$post->photo->image);
+        File::delete('images/thumbnails/'.$post->photo->image);
+        
+        // $old_photo=Photo::find($post->photo_id)->delete();
           }
 
           //create new photo
-          $file->move('images',$filename);
+          Image::make($file)->resize(300, 200)->save('images/thumbnails/'.$filename);
+          Image::make($file)->resize(780, 500)->save('images/'.$filename);
         
-         $photo=Photo::create(['image'=>$filename]);
+         $photo=Photo::find($post->photo_id)->update(['image'=>$filename]);
         
         //excluding the image from input array
         // unset($input['image']);
-         $input['photo_id']=$photo->id;
+         unset($input['photo_id']);
         }
         //$user->posts()->whereId($id)->update($input);
 
@@ -151,7 +157,8 @@ class AdminPostsController extends Controller
        
         if ($post->photo) {
 
-            File::delete($post->photo->image);
+            File::delete('images/'.$post->photo->image);
+            File::delete('images/thumbnails/'.$post->photo->image);
             $old_photo=Photo::find($post->photo_id)->delete();
              
 

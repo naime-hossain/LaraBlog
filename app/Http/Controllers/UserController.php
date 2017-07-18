@@ -8,6 +8,7 @@ use App\Post;
 use App\User;
 use App\Photo;
 use App\Category;
+use Image;
 use Illuminate\Support\Facades\File;
 class UserController extends Controller
 {
@@ -113,18 +114,18 @@ class UserController extends Controller
        //remove old history
           if ($user->photo_id) {
               # code...
-        File::delete($user->photo->image);
-        $old_photo=Photo::find($user->photo_id)->delete();
+        File::delete('images/'.$user->photo->image);
+        // $old_photo=Photo::find($user->photo_id)->delete();
           }
 
           //create new photo
-          $file->move('images',$filename);
+          Image::make($file)->resize(300, 200)->save('images/'.$filename);
         
-         $photo=Photo::create(['image'=>$filename]);
+         $photo=Photo::find($user->photo_id)->update(['image'=>$filename]);
         
         //excluding the image from input array
         // unset($input['image']);
-         $input['photo_id']=$photo->id;
+         unset($input['photo_id']);
         }
         $user->update($input);
         if ($user) {
@@ -157,7 +158,7 @@ class UserController extends Controller
           
         if ($user) {
             //delete user photo from folder
-            File::delete($user->photo->image);
+            File::delete('images/'.$user->photo->image);
             //delete user photo from dat abase
             $old_photo=Photo::find($user->photo_id)->delete();
             //delete users Posts from database

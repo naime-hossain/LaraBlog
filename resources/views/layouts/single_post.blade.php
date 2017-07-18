@@ -1,7 +1,7 @@
 
  					<div class="post_wrap">
  						<div class="post_heading col-md-4">
- 					      <img class="img-responsive img-raised img-rounded" src="/{{ $post->photo?$post->photo->image:'' }}" alt="">
+ 					      <img class="img-responsive img-raised img-rounded" src="/images/thumbnails/{{ $post->photo?$post->photo->image:'' }}" alt="">
  						</div>
  						<div class="post_body col-md-8">
  						  <div class="">

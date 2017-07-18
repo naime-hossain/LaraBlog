@@ -45,7 +45,7 @@
 
     <div class="form-group col-md-12 {{ $errors->has('body') ? ' has-error' : '' }}">
        {!! Form::label('body','Post body', []) !!}
-     {!! Form::textarea('body',null,['class'=>'form-control','value'=>old('body'),'rows'=>5,'id'=>'textarea']) !!}
+     {!! Form::textarea('body',null,['class'=>'form-control','value'=>old('body'),'rows'=>15,'id'=>'textarea']) !!}
    </div>
 
 

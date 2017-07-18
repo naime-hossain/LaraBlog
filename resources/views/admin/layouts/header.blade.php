@@ -90,7 +90,7 @@
                         <!-- user image section-->
                         <div class="user-section">
                             <div class="user-section-inner">
-                                <img class="img-rounded img-raised img-responsive" src="/{{  Auth::user()->photo?Auth::user()->photo->image:'placeholder' }}" alt="">
+                                <img class="img-rounded img-raised img-responsive" src="/images/{{  Auth::user()->photo?Auth::user()->photo->image:'placeholder' }}" alt="">
                             </div>
                          {{--    <div class="user-info">
                                 <div>{{ Auth::user()->name }}</strong></div>

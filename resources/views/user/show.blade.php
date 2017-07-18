@@ -27,7 +27,7 @@
                           <div class="col-md-4">
                               
                         
- 							<img class="img-responsive img-raised img-rounded" src="/{{ $user->photo? $user->photo->image: '1' }}" alt="{{ $user->name }}">
+ 							<img class="img-responsive img-raised img-rounded" src="/images/{{ $user->photo? $user->photo->image: '1' }}" alt="{{ $user->name }}">
  						
 
  							@if (Auth::check())

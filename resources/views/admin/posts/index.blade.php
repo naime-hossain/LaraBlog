@@ -46,7 +46,7 @@
                                             <td>
                                              @if ($post->photo)
                                               {{-- expr --}}
-                                              <img height="50" width="150" src="/{{ $post->photo?$post->photo->image:''}}" alt="">
+                                              <img height="50" width="150" src="/images/thumbnails/{{ $post->photo?$post->photo->image:''}}" alt="">
                                             @endif
                                             </td>
                                             <td>@if($post->user)
