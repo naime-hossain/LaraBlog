@@ -314,7 +314,7 @@ option {
 .post_body {
     display: block;
    
-    padding: 15px 10px;
+    padding: 0px 10px;
     transition: all .8s;
 }
 .post_body h2 {
@@ -323,6 +323,9 @@ option {
     padding-bottom: 0px;
     margin-top: 0px;
     text-transform:capitalize;
+}
+.post_body h2 a{
+    color:#fff;
 }
    
    .post_body p {

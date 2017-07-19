@@ -182,8 +182,8 @@ class PostsController extends Controller
              if ($file=$request->file('photo_id')) {
             # code...
              $filename= $user->name.rand(0,time()).$file->getClientOriginalName();
-             Image::make($file)->resize(300, 200)->save('images/thumbnails/'.$filename);
-             Image::make($file)->resize(1000, 700)->save('images/'.$filename);
+             Image::make($file)->fit(300, 200)->save('images/thumbnails/'.$filename);
+             Image::make($file)->fit(700, 500)->save('images/'.$filename);
              // $file->move('images',$filename);
              $photo=Photo::create(['image'=>$filename]);
              $input['photo_id']=$photo->id;
@@ -281,8 +281,8 @@ class PostsController extends Controller
           }
 
           //create new photo
-          Image::make($file)->resize(300, 200)->save('images/thumbnails/'.$filename);
-          Image::make($file)->resize(780, 500)->save('images/'.$filename);
+          Image::make($file)->fit(300, 200)->save('images/thumbnails/'.$filename);
+          Image::make($file)->fit(700, 500)->save('images/'.$filename);
         
          $photo=Photo::find($post->photo_id)->update(['image'=>$filename]);
         

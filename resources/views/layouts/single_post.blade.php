@@ -5,7 +5,8 @@
  						</div>
  						<div class="post_body col-md-8">
  						  <div class="">
- 						  			<h2>{{ $post->title }}</h2>
+
+ 						  			<h2><a class="" href="{{ route('posts.show', $post->id) }}" title="">{{ $post->title }}</a></h2>
  							<p>
 	 							
 	 							<span> 
@@ -45,6 +46,6 @@
  						  </div>
  							
  							<p>{!! str_limit($post->body,150) !!}</p>
- 							<a class="btn btn-primary" href="{{ route('posts.show', $post->id) }}" title="">Read more</a>
+ 							
  						</div>
  					</div>
