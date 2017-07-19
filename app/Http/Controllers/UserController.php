@@ -119,7 +119,7 @@ class UserController extends Controller
           }
 
           //create new photo
-          Image::make($file)->resize(300, 200)->save('images/'.$filename);
+          Image::make($file)->fit(300, 200)->save('images/'.$filename);
         
          $photo=Photo::find($user->photo_id)->update(['image'=>$filename]);
         
