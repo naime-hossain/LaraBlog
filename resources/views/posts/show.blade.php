@@ -111,7 +111,9 @@
 
                   <div class="media-heading">
                     <button class="btn btn-default btn-collapse btn-xs" type="button" data-toggle="collapse" data-target="#collapse{{ $comment->id }}" aria-expanded="false" aria-controls="collapseExample"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button> <span class="">
-                    <img class="img-raised img-rounded" height="20" src="/{{ $comment->user->photo->image }}" alt="">
+                    @if ($comment->user->photo)
+                      <img class="img-raised img-rounded" height="20" src="/images/{{ $comment->user->photo->image }}" alt="">
+                    @endif
                     </span> 
                      @if (Auth::check())
                       {{-- expr --}}
