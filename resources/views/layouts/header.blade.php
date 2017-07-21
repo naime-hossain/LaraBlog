@@ -13,7 +13,7 @@
     <!-- Styles -->
    
     
-    <link href="/assets/css/app.css" rel="stylesheet"/>
+    <link href="/css/app.css" rel="stylesheet"/>
 
 </head>
 <body>

@@ -21,7 +21,7 @@ const { mix } = require('laravel-mix');
 	'public/css/material-kit.css',
 	'public/css/style.css',
      ], 
-    'public/assets/css/app.css'
+    'public/css/app.css'
 
 
  );
@@ -34,7 +34,7 @@ const { mix } = require('laravel-mix');
      "public/js/material-kit.js", 
      "public/js/custom.js", 
      ], 
-    'public/assets/js/app.js'
+    'public/js/app.js'
 
 
  );

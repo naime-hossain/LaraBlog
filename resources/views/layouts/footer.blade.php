@@ -7,7 +7,8 @@
     </div>
     <!-- Scripts -->
 
-    <script src='/assets/js/app.js'></script>
+    <script src='/js/app.js'></script>
+    @yield('footer')
    
 
     

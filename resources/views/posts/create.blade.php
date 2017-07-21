@@ -59,3 +59,8 @@
  </div>
  
 @endsection
+@section('footer')
+ <script type="text/javascript" >
+   
+ </script>
+@endsection
