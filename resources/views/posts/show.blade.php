@@ -30,7 +30,12 @@
  					
  					<div class="single_post_wrap">
  						<div class="post_heading">
- 							<img class="img-responsive img-raised img-rounded" src="/images/{{ $post->photo?$post->photo->image:''  }}" alt="">
+ 							@if ($post->photo)
+               <img class="img-responsive img-raised img-rounded" src="{{ $post->photo->image() }}" alt="">
+               @else
+                <img class="img-responsive img-raised img-rounded" src="http://via.placeholder.com/700x500" alt="">
+
+            @endif
  							
  						</div>
  						<div class="post_body">

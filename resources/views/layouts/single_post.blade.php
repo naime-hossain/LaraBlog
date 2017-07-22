@@ -1,7 +1,13 @@
 
  					<div class="post_wrap">
  						<div class="post_heading col-md-4">
- 					      <img class="img-responsive img-raised img-rounded" src="/images/thumbnails/{{ $post->photo?$post->photo->image:'' }}" alt="">
+ 						@if ($post->photo)
+ 							 <img class="img-responsive img-raised img-rounded" src="{{ $post->photo->thumb() }}" alt="">
+ 							 @else
+ 							  <img class="img-responsive img-raised img-rounded" src="http://via.placeholder.com/350x350" alt="">
+
+ 						@endif
+ 					     
  						</div>
  						<div class="post_body col-md-8">
  						  <div class="">

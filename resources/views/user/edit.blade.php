@@ -18,7 +18,13 @@
 
   </div>
   <div class="col-md-3">
-    <img class="img-responsive img-rounded" src="/images/{{ $user->photo?$user->photo->image:'http://via.placeholder.com/350x350' }}" alt="{{ $user->photo_id }}">
+   
+           @if ($user->photo)
+               <img class="img-responsive img-raised img-rounded" src="{{ $user->photo->image() }}" alt="">
+               @else
+                <img class="img-responsive img-raised img-rounded" src="http://via.placeholder.com/350x350" alt="">
+
+            @endif
   </div>
 
  <div class="col-md-8 col-offset-2">

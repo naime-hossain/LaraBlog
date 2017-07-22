@@ -120,12 +120,19 @@ class UserController extends Controller
 
           //create new photo
           Image::make($file)->fit(300, 200)->save('images/'.$filename);
-        
-         $photo=Photo::find($user->photo_id)->update(['image'=>$filename]);
+//check if the user has photo_id or not and do respectively
+        if ($user->photo_id) {
+            $photo=Photo::find($user->photo_id)->update(['image'=>$filename]);
+            unset($input['photo_id']);
+        }else{
+           $photo=Photo::create(['image'=>$filename]);
+           $input['photo_id']=$photo->id; 
+        }
+         
         
         //excluding the image from input array
         // unset($input['image']);
-         unset($input['photo_id']);
+         
         }
         $user->update($input);
         if ($user) {
