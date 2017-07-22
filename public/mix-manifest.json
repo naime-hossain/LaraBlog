@@ -5,5 +5,6 @@
   "/mix.js": "/mix.js",
   "/assets/js/app.js": "/assets/js/app.js",
   "merged.js": "merged.js",
-  "/assets/css/app.css": "/assets/css/app.css"
+  "/assets/css/app.css": "/assets/css/app.css",
+  "/css/app_core.css": "/css/app_core.css"
 }

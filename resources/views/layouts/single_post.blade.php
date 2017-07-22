@@ -12,7 +12,7 @@
  						<div class="post_body col-md-8">
  						  <div class="">
 
- 						  			<h2><a class="" href="{{ route('posts.show', $post->id) }}" title="">{{ $post->title }}</a></h2>
+ 						  			<h2><a class="" href="{{ route('posts.show', $post->slug) }}" title="">{{ $post->title }}</a></h2>
  							<p>
 	 							
 	 							<span> 

@@ -24,6 +24,10 @@
        {!! Form::label('title','Post title', []) !!}
    	 {!! Form::text('title',null, ['class'=>"form-control",'value'=>old('title')]) !!}
    </div>
+    <div class="form-group col-md-6 {{ $errors->has('slug') ? ' has-error' : '' }}">
+       {!! Form::label('slug','Post slug', []) !!}
+     {!! Form::text('slug',null, ['class'=>"form-control",'value'=>old('slug')]) !!}
+   </div>
 
     <div class="form-group col-md-6">
        {!! Form::label('category','Select Category for Post', []) !!}

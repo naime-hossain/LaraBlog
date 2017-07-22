@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Larablog</title>
     <!-- Core CSS - Include with every page -->
-    <link href="/css/app.css" rel="stylesheet" />
+    <link href="/css/app_core.css" rel="stylesheet" />
     <link href="/css/font-awesome.min.css" rel="stylesheet" />
     
     <link href="/admin_assets/css/style.css" rel="stylesheet" />
