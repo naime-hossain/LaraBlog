@@ -26,7 +26,7 @@
 								
                                   
 									<!-- Indicators -->
-							{{-- 		<ol class="carousel-indicators">
+									<ol class="carousel-indicators">
 									 @for ($i = 0; $i<$latests->count() ; $i++)
 									 	
 									 
@@ -36,11 +36,11 @@
 									 	@else
 									 		<li data-target="#home_slider" data-slide-to="{{ $i }}"></li>
 									 		@endif
-									 	
+										
 									 @endfor
 										
 										
-									</ol> --}}
+									</ol>
 
 									<!-- Wrapper for slides -->
 									<div class="carousel-inner">

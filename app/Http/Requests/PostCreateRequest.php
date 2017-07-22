@@ -25,7 +25,7 @@ class PostCreateRequest extends FormRequest
     {
         return [
             //
-         'title'=>'required|unique:posts',
+         'title'=>'required|unique:posts|max:60',
          'slug'=>'required|unique:posts',
          'body'=>'required',
          'photo_id'=>'required|image|mimes:jpeg,png,jpg',
