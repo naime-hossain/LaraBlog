@@ -155,6 +155,7 @@ class PostsController extends Controller
      */
     public function store(PostCreateRequest $request)
     {
+        
         $input=$request->all();
     if ($request->category_id==0) {
         # code...

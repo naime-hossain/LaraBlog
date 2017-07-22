@@ -55,12 +55,20 @@
    
 
  {!! Form::close() !!}
+ {{-- file manager stand alone --}}
+    {{--  <div class="col-md-6">
+       {!! Form::label('photo_id','Select a Photo', ['class'=>'btn btn-info','id'=>"lfm", 'data-input'=>"thumbnail" ,'data-preview'=>"holder"]) !!}
+     {!! Form::text('photo_id',null, ['class'=>'form-control','id'=>"thumbnail"]) !!}
+     <img id="holder" style="margin-top:15px;max-height:100px;">
+   </div> --}}
+
 
  </div>
  
 @endsection
 @section('footer')
+{{-- <script src="/vendor/laravel-filemanager/js/lfm.js"></script>
  <script type="text/javascript" >
-   
- </script>
+    $('#lfm').filemanager('image');
+ </script> --}}
 @endsection
