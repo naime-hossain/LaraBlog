@@ -10,3 +10,6 @@ Homestead.yaml
 npm-debug.log
 .env
 pass.txt
+/resources
+/app
+/routes
