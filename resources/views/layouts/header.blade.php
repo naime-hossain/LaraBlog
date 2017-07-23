@@ -7,9 +7,22 @@
   <link rel="icon" href="/images/laravel-icon.png" type="image" sizes="16x16">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Larablog') }}</title>
-
+   @php
+      
+       config(['app.name' =>$settings->site_name]);
+     //  config(['app.DB_DATABASE' => 'test']);
+     //  config(['app.database' => 'test']);
+     //  config(['mysql.database' => 'test']);
+     // echo  config('mysql.database');
+     // echo $value = config('app.DB_DATABASE');
+     // echo env('DB_DATABASE');
+     // echo env('app.timezone');
+   // Config::set('database','gfd');
+   
+      
+   @endphp
+    <title>@yield('title', config('app.name', 'Larablog'))</title>
+    
     <!-- Styles -->
    
     

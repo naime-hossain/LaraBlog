@@ -151,6 +151,17 @@
                         <!-- second-level-items -->
                     </li>
 
+                        <li>
+                        <a href="#"><i class="fa fa-cog fa-fw"></i> &nbsp;App Settings<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{ route('settings.index') }}">Update Settings</a>
+                            </li>
+                          
+                        </ul>
+                        <!-- second-level-items -->
+                    </li>
+
                 </ul>
                 <!-- end side-menu -->
             </div>

@@ -15,7 +15,7 @@
             @endphp
               @foreach ($latests as $post)
                 {{-- expr --}}
-                 <li><a href="/posts/{{$post->id}}">{{$post->title}}</a></li>
+                 <li><a href="/posts/{{$post->slug}}">{{$post->title}}</a></li>
               @endforeach
              
              
@@ -96,7 +96,7 @@
           <div class="sidebar-module">
             <h4>find me</h4>
             <ol class="list-unstyled">
-              <li><a href="https://github.com/naime-hossain">GitHub</a></li>
+              {{-- <li><a href="https://github.com/naime-hossain">GitHub</a></li> --}}
               <li><a href="https://twitter.com/NaimeH_B">Twitter</a></li>
               <li><a href="https://www.facebook.com/naime.hossain.3">Facebook</a></li>
             </ol>

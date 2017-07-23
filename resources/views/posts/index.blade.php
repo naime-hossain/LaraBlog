@@ -1,4 +1,7 @@
 @extends('layouts.app')
+  @section('title')
+     {{ config('app.name', 'Larablog').' || posts' }}
+     @endsection
 @section('heading')
     {{-- expr --}}
     @if (count($posts)>0)

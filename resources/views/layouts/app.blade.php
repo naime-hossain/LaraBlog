@@ -1,6 +1,7 @@
   @include('layouts.header')
 
-    <div class="welcome_wrap">
+    <div class="welcome_wrap " style="background-image: url(/images/{{ $settings->site_cover_photo }});"">
+    
       <div class="welcome_text">
          <div class="container">
          	<div class="row">

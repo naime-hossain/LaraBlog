@@ -33,9 +33,17 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with('categories',\App\Category::all());
         });
-             view()->composer('layouts.sidebar',function($view){
+        view()->composer('layouts.sidebar',function($view){
 
             $view->with('users',\App\User::all());
+        });
+        view()->composer('layouts.app',function($view){
+
+            $view->with('settings',\App\Setting::first());
+        });
+          view()->composer('welcome',function($view){
+
+            $view->with('settings',\App\Setting::first());
         });
     }
 

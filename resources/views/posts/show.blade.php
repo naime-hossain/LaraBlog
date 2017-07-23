@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('heading')
     {{-- expr --}}
     @if ($post)
@@ -25,8 +26,10 @@
  				{{-- expr --}}
  				
  					{{-- expr --}}
- 					 
- 					 	
+ 					 {{-- rename the title --}}
+ 			@section('title')
+     {{ config('app.name', 'Larablog').' || '.$post->slug }}
+     @endsection
  					
  					<div class="single_post_wrap">
  						<div class="post_heading">

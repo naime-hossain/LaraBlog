@@ -1,7 +1,7 @@
     <div class="footer_wrap ">
     	<div class="container">
     		<div class="row">
-    			<h4 class="panel text-center">Design And Developed By <a href="http://naimehossain.com" title="">Naime Hossain</a></h4>
+    			<h4 class="panel text-center">{{ $settings->site_footer_text }}</h4>
     		</div>
     	</div>
     </div>

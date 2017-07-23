@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('heading')
     {{-- expr --}}
-    <h1>Welcome to Larablog </h1>
-    <p>WRITE LIKE THERE'S NO RULE</p>
+    <h1>{{ $settings->site_slogan }} </h1>
+    <p>{{ $settings->site_description }}</p>
    {{--  <a href="http://naimehossain.com" class="text-info btn btn-simple">Naime Hossain</a> --}}
 
 @endsection
@@ -52,7 +52,7 @@
 									<img class="img-responsive" src="/images/{{ $post->photo?$post->photo->image:'' }}" alt="Awesome Image">
 									<div class="carousel-caption">
 										<h4>{{ $post->title }}</h4>
-											<a class="btn btn-primary" href="{{ route('posts.show',$post->id) }}" title="">Read This</a>
+											<a class="btn btn-primary" href="{{ route('posts.show',$post->slug) }}" title="">Read This</a>
 									</div>
 										</div>
 								
