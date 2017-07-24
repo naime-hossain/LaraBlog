@@ -1,7 +1,11 @@
     <div class="footer_wrap ">
     	<div class="container">
     		<div class="row">
-    			<h4 class="panel text-center">{{ $settings->site_footer_text }}</h4>
+    			<h4 class="panel text-center">
+                @if ($settings)
+                     {{ $settings->site_footer_text }}
+                @endif
+               </h4>
     		</div>
     	</div>
     </div>

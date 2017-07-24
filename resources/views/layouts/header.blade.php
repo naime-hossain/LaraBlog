@@ -8,8 +8,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
    @php
+   //change the application name
+      if ($settings) {
+           config(['app.name' =>$settings->site_name]);
+      }
       
-       config(['app.name' =>$settings->site_name]);
      //  config(['app.DB_DATABASE' => 'test']);
      //  config(['app.database' => 'test']);
      //  config(['mysql.database' => 'test']);

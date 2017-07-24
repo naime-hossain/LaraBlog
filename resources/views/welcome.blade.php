@@ -1,8 +1,11 @@
 @extends('layouts.app')
 @section('heading')
     {{-- expr --}}
+    @if ($settings)
     <h1>{{ $settings->site_slogan }} </h1>
     <p>{{ $settings->site_description }}</p>
+    @endif
+    
    {{--  <a href="http://naimehossain.com" class="text-info btn btn-simple">Naime Hossain</a> --}}
 
 @endsection

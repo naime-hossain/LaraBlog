@@ -1,6 +1,9 @@
   @include('layouts.header')
 
-    <div class="welcome_wrap " style="background-image: url(/images/{{ $settings->site_cover_photo }});"">
+    <div class="welcome_wrap "  @if ($settings)
+       style="background-image: url(/images/{{ $settings->site_cover_photo }});"
+    @endif
+   >
     
       <div class="welcome_text">
          <div class="container">
