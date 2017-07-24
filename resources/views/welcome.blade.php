@@ -3,7 +3,7 @@
     {{-- expr --}}
     @if ($settings)
     <h1>{{ $settings->site_slogan }} </h1>
-    <p>{{ $settings->site_description }}</p>
+    <p>{{ $settings->site_subslogan }}</p>
     @endif
     
    {{--  <a href="http://naimehossain.com" class="text-info btn btn-simple">Naime Hossain</a> --}}
@@ -83,13 +83,10 @@
 				</div>
 				@else
 					<div class="col-md-8 col-md-offset-2 alt_text_wrap text-center">
-				<h2>Waht are you thinking??</h2>
-				<p>This is the place of sharing thoughts.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<h2>What are you thinking??</h2>
+				 <p>@if ($settings)
+          {{ $settings->site_description }}
+            @endif</p>
 	</div>
 			@endif
 		

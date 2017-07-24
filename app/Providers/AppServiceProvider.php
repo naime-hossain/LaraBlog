@@ -41,6 +41,10 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with('settings',\App\Setting::first());
         });
+           view()->composer('layouts.sidebar',function($view){
+
+            $view->with('settings',\App\Setting::first());
+        });
           view()->composer('welcome',function($view){
 
             $view->with('settings',\App\Setting::first());

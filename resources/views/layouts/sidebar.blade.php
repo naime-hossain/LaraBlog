@@ -1,7 +1,10 @@
    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
             <h4>About</h4>
-            <p>Larablog is a web application which is develped with Laravel.In this Platform you can share your thoughts.A simple application where you may find some lackings,if you want me to impeove it then let me know.Thanks</p>
+            <p>@if ($settings)
+          {{ $settings->site_description }}
+            @endif</p>
+            {{-- Larablog is a web application which is develped with Laravel.In this Platform you can share your thoughts.A simple application where you may find some lackings,if you want me to impeove it then let me know.Thanks --}}
           </div>
           @if (count($latests)>0)
             {{-- expr --}}
