@@ -17,8 +17,10 @@ class CreateSettingsTable extends Migration
             $table->increments('id');
             $table->string('site_name');
             $table->text('site_slogan');
+            $table->text('site_subslogan');
             $table->text('site_description');
             $table->text('site_cover_photo');
+            
             $table->text('site_footer_text');
 
             $table->timestamps();
