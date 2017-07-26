@@ -49,6 +49,10 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with('settings',\App\Setting::first());
         });
+            view()->composer('admin.layouts.header',function($view){
+
+            $view->with('settings',\App\Setting::first());
+        });
     }
 
     /**

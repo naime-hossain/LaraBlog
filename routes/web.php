@@ -23,9 +23,7 @@ Auth::routes();
 //Admin routes
 Route::group(['prefix' => 'admin','middleware'=>'admin'], function() {
     //
-    Route::get('/', function () {
-    return view('admin.index');
-});
+    Route::get('/','AdminController@index');
 
     Route::resource('/users','AdminUsersController');
     Route::resource('/adposts','AdminPostsController');

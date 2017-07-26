@@ -13,18 +13,10 @@
            config(['app.name' =>$settings->site_name]);
       }
       
-     //  config(['app.DB_DATABASE' => 'test']);
-     //  config(['app.database' => 'test']);
-     //  config(['mysql.database' => 'test']);
-     // echo  config('mysql.database');
-     // echo $value = config('app.DB_DATABASE');
-     // echo env('DB_DATABASE');
-     // echo env('app.timezone');
-   // Config::set('database','gfd');
    
       
    @endphp
-    <title>@yield('title', config('app.name', 'Larablog'))</title>
+    <title>@yield('title', config('app.name', 'Shoshi'))</title>
     
     <!-- Styles -->
    
@@ -53,7 +45,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand fa fa-3x" href="{{ url('/') }}">
-                        {{ config('app.name', 'Larablog') }}
+                        {{ config('app.name', 'shoshi') }}
                     </a>
                 </div>
 

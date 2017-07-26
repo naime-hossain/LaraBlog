@@ -3,7 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Larablog</title>
+     @php
+   //change the application name
+      if ($settings) {
+           config(['app.name' =>$settings->site_name]);
+      }
+      
+   
+      
+   @endphp
+     <title>@yield('title', config('app.name', 'Shoshi'))</title>
     <!-- Core CSS - Include with every page -->
     <link href="/css/app_core.css" rel="stylesheet" />
     <link href="/css/font-awesome.min.css" rel="stylesheet" />
@@ -14,6 +23,7 @@
     
     <link href="/css/material-kit.css" rel="stylesheet"/>
     <link href="/admin_assets/css/admin.css" rel="stylesheet" />
+    <link rel="icon" href="/images/laravel-icon.png" type="image" sizes="16x16">
     
    </head>
 <body>
@@ -34,7 +44,7 @@
                 </button>
                 <a class="navbar-brand fa-2x" href="/">
                     {{-- <img src="/admin/img/logo.png" alt="" /> --}}
-                    Larablog
+                     {{ config('app.name', 'shoshi') }}
                 </a>
             </div>
             <!-- end navbar-header -->
