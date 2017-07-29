@@ -116,7 +116,7 @@ class AdminUsersController extends Controller
             ]);
         $user=User::findOrFail($id);
         $input=$request->all();
-        $input['photo_id']=$user->photo_id;
+        
 
         if ($file=$request->file('image')) {
           
@@ -127,18 +127,29 @@ class AdminUsersController extends Controller
           if ($user->photo_id) {
               # code...
         File::delete('images/'.$user->photo->image);
-        // $old_photo=Photo::find($user->photo_id)->delete();
-          }
-
-          //create new photo
+        
+         //create new photo
            Image::make($file)->fit(300, 200)->save('images/'.$filename);
         
          $photo=Photo::find($user->photo_id)->update(['image'=>$filename]);
-        
-        //excluding the image from input array
-        // unset($input['image']);
+         //excluding the image from input array
+        unset($input['image']);
          unset($input['photo_id']);
+          }else{
+            //create new photo
+           Image::make($file)->fit(300, 200)->save('images/'.$filename);
+        
+         $photo=Photo::create(['image'=>$filename]);
+         $input['photo_id']=$photo->id;
+           //excluding the image from input array
+        unset($input['image']);
+          }
+
+          
+        
+        
         }
+       
         $user->update($input);
         if ($user) {
             # code...
