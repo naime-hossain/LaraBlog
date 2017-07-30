@@ -3,7 +3,7 @@
 	{{-- expr --}}
 	<h1 class="text-center text-danger">opps!this page is not available</h1>
 
- 
+
 @endsection
 @section('content')
 	<div class="col-md-8 col-md-offset-2">

@@ -16,7 +16,9 @@ Route::get('/', function () {
 })->name('home');
 
 Auth::routes();
-
+//install route
+Route::get('/install','InstallController@index');
+Route::post('/install','InstallController@install');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
