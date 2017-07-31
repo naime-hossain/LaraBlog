@@ -5,3 +5,4 @@
       <b class="text-danger">Alert:</b> {{ Session::get('message') }}
    
 </div>
+{{-- show the alert --}}
