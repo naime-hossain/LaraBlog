@@ -12,6 +12,10 @@
       if ($settings) {
            config(['app.name' =>$settings->site_name]);
       }
+      // print_r(config('database')) ;
+      //get the databse name
+     // echo Config::get('database.connections.'.Config::get('database.default').'.database');
+
       
    
       
