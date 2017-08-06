@@ -16,14 +16,13 @@ class Photo extends Model
     protected $fillable = ['image'];
     protected $directory='/images/';
     protected $thunb_directory='/images/thumbnails/';
-    // public function getImageAttribute($image){
-    //  return $this->directory.$image;
-    // }
 
-   
+   //function for getting the thumbnails
  public function thumb(){
      return $this->thunb_directory.$this->image;
     }
+
+    // function for getting the cover image
      public function image(){
      return $this->directory.$this->image;
     }

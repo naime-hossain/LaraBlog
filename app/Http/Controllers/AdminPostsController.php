@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\File;
 class AdminPostsController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * Display the post.
+     *10 posts per page
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -26,7 +26,7 @@ class AdminPostsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new post.
      *
      * @return \Illuminate\Http\Response
      */
@@ -38,17 +38,17 @@ class AdminPostsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created post in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(PostCreateRequest $request)
     {
-        $input=$request->all();
-        $user=Auth::user();
+         $input=$request->all();
+         $user=Auth::user();
              if ($file=$request->file('photo_id')) {
-            # code...
+           // use intervention image to crop the images
            
              $filename= rand(0,time()).$file->getClientOriginalName();
           Image::make($file)->fit(300, 200)->save('images/thumbnails/'.$filename);
@@ -71,33 +71,24 @@ class AdminPostsController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified post.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        //lists all the categories 
         $categories=Category::pluck('name','id')->all();
         $post=Post::findOrFail($id);
         return view('admin.posts.edit',compact('post','categories'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified post in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -109,19 +100,18 @@ class AdminPostsController extends Controller
 
         $post=Post::findOrFail($id);
          $input=$request->all();
-        $user=Auth::user();
-            if ($file=$request->file('photo_id')) {
+         $user=Auth::user();
+         // check if post image in changed or not
+        if ($file=$request->file('photo_id')) {
           
       
-       
        $filename = rand(0,time()).$file->getClientOriginalName();
-       //remove old history
+       //remove old image history from disk
           if ($post->photo_id) {
               # code...
         File::delete('images/'.$post->photo->image);
         File::delete('images/thumbnails/'.$post->photo->image);
-        
-        // $old_photo=Photo::find($post->photo_id)->delete();
+ 
           }
 
           //create new photo
@@ -130,11 +120,11 @@ class AdminPostsController extends Controller
         
          $photo=Photo::find($post->photo_id)->update(['image'=>$filename]);
         
-        //excluding the image from input array
-        // unset($input['image']);
+        //excluding the photo_id from input array
+        
          unset($input['photo_id']);
         }
-        //$user->posts()->whereId($id)->update($input);
+       
 
        if ($post->update($input)) {
          
@@ -145,7 +135,7 @@ class AdminPostsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified post from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -154,7 +144,7 @@ class AdminPostsController extends Controller
     {
         //
             $post=Post::findOrFail($id);
-       
+       //if post has photo then remove them too
         if ($post->photo) {
 
             File::delete('images/'.$post->photo->image);

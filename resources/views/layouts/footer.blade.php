@@ -2,6 +2,7 @@
     	<div class="container">
     		<div class="row">
     			<h4 class="panel text-center">
+                {{-- footer text come from app setting --}}
                 @if ($settings)
                      {{ $settings->site_footer_text }}
                 @endif
@@ -9,11 +10,12 @@
     		</div>
     	</div>
     </div>
-    <!-- Scripts -->
+    <!-- end of footer wrap -->
 
-    <script src='/js/app.js'></script>
-    @yield('footer')
-   
+<script src='/js/app.js'></script>
+
+{{-- this section is for page level script --}}
+@yield('footer')   
 
     
 </body>

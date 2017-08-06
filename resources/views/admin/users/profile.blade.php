@@ -6,7 +6,12 @@
   </div>
   <div class="row">
   	 <div class="col-md-6">
-  	 	<img src="/images/{{ $user->photo->image }}" class="img-responsive img-rounded" alt="">
+  	      @if ($user->photo)
+               <img class="img-responsive img-raised img-rounded" src="{{ $user->photo->image() }}" alt="">
+               @else
+                <img class="img-responsive img-raised img-rounded" src="http://via.placeholder.com/350x350" alt="">
+
+            @endif
   	 </div>
   	 <div class="col-md-6">
   	 	<h2><i class="fa fa-message"></i> {{ $user->email }} </h2>

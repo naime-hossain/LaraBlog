@@ -65,6 +65,8 @@ class Post extends Model
         return $this->hasMany('App\Comment');
     }
 
+
+// archives function make a lists of all posts by month
       public static function archives (){
 
       return static::selectRaw('year(created_at) year,monthname(created_at) month,count(*) published')
@@ -74,6 +76,9 @@ class Post extends Model
         ->toArray();
     }
 
+/*
+*get most recent 5 posts
+*/
     public static function recent_post(){
        return static::latest()->take(5)->get();
     }

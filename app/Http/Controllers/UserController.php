@@ -14,37 +14,12 @@ class UserController extends Controller
 {
 
      public function __construct(){
-        $this->middleware('subscriber')->except(
-            [
-             ]);
-        // $this->middleware('subscriber')->only(['create','edit']);
-    }
+        $this->middleware('subscriber')->except([]);
+      
+      }
+   
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    
-
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
- 
-
-    /**
-     * Display the specified resource.
+     * Display A user info.
      *
      * @param  string  $name
      * @return \Illuminate\Http\Response
@@ -58,7 +33,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified user.
      *
      * @param  string  $name
      * @return \Illuminate\Http\Response
@@ -70,7 +45,7 @@ class UserController extends Controller
         if ($user) {
             # code...
                $user_id=Auth::user()->id;
-        //check the post is belong to logedin user or not
+        //check the user is the logedin user or not
         if ($user_id==$user->id) {
             return view('user.edit',compact('user'));
           }else{
@@ -84,7 +59,7 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified user in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  string  $name
@@ -115,7 +90,7 @@ class UserController extends Controller
           if ($user->photo_id) {
               # code...
         File::delete('images/'.$user->photo->image);
-        // $old_photo=Photo::find($user->photo_id)->delete();
+       
           }
 
           //create new photo
@@ -130,10 +105,10 @@ class UserController extends Controller
         }
          
         
-        //excluding the image from input array
-        // unset($input['image']);
+        
          
         }
+
         $user->update($input);
         if ($user) {
             # code...
@@ -160,15 +135,15 @@ class UserController extends Controller
          //
         $user=User::findOrFail($id);
           $user_id=Auth::user()->id;
-        //check the post is belong to logedin user or not
+       //check the profile is belong to logedin user or not
         if ($user_id==$user->id) {
           
         if ($user) {
             //delete user photo from folder
             File::delete('images/'.$user->photo->image);
-            //delete user photo from dat abase
+            //delete user photo from database
             $old_photo=Photo::find($user->photo_id)->delete();
-            //delete users Posts from database
+            //delete user and his/her Posts from database
              $user_delete=$user->delete();
 
         }

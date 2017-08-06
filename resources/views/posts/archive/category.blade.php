@@ -19,11 +19,10 @@
  			@if (count($posts)>0)
  				{{-- expr --}}
  				@foreach ($posts as $post)
- 					{{-- expr --}}
- 					 <div class="">
+ 			
  					 	
  				@include('layouts.single_post')
- 					 </div>
+ 		
  				@endforeach
  			  {{ $posts->links() }}
  			@endif

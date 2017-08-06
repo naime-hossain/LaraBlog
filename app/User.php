@@ -27,15 +27,33 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-// relationship for user and role
-    public function role(){
-        return $this->belongsTo('App\Role');
+
+
+      /**
+       * User belongs to Role.
+       *
+       * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+       */
+      public function role()
+      {
+        // belongsTo(RelatedModel, foreignKey = role_id, keyOnRelatedModel = id)
+        return $this->belongsTo(Role::class);
       }
 
-      // relationship for user and photo
-    public function photo(){
-        return $this->belongsTo('App\Photo');
-      }
+  
+
+/**
+ * User belongs to Photo.
+ *
+ * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+ */
+public function photo()
+{
+  // belongsTo(RelatedModel, foreignKey = photo_id, keyOnRelatedModel = id)
+  return $this->belongsTo(Photo::class);
+}
+
+
 
     /**
      * User has many Posts.
@@ -48,6 +66,12 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
     }
 
+
+  /**
+     * check the user status is active or not.
+     *
+     * @return true or false
+     */
       public function isactive(){
 
          if ($this->is_active==1) {
@@ -57,6 +81,12 @@ class User extends Authenticatable
             return false;
          }
       }
+
+      /**
+     * check the user role is admin or not .
+     *
+     * @return true or false
+     */
 
       public function isadmin(){
            if ($this->role) {
@@ -72,6 +102,12 @@ class User extends Authenticatable
        
       }
 
+        /**
+     * check the user role is author or not .
+     *
+     * @return true or false
+     */
+
            public function isauthor(){
              if ($this->role) {
                # code...
@@ -85,6 +121,12 @@ class User extends Authenticatable
            return false;
        
       }
+
+        /**
+     * check the user role is subscriber or not .
+     *
+     * @return true or false
+     */
 
       public function issubscriber(){
          if ($this->role) {

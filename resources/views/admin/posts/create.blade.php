@@ -7,47 +7,48 @@
   </div>
 
  <div class="col-md-8 col-offset-2">
- @if ($errors->count()>0)
-  @include('alert.error')
-@endif
+ {{-- show alert --}}
+   @if ($errors->count()>0)
+    @include('alert.error')
+  @endif
    @if(Session::has('message'))
         @include('alert.success')
     @endif
 
+    {{-- form tto create message --}}
+     {!! Form::open(['action'=>'AdminPostsController@store','method'=>'post','files' => true]) !!}
 
- {!! Form::open(['action'=>'AdminPostsController@store','method'=>'post','files' => true]) !!}
+           <div class="form-group col-md-12 {{ $errors->has('title') ? ' has-error' : '' }}">
+               {!! Form::label('title','Post title', []) !!}
+           	 {!! Form::text('title',null, ['class'=>"form-control",'value'=>old('title')]) !!}
+           </div>
+             <div class="form-group col-md-6 {{ $errors->has('slug') ? ' has-error' : '' }}">
+               {!! Form::label('slug','Post slug', []) !!}
+             {!! Form::text('slug',null, ['class'=>"form-control",'value'=>old('slug')]) !!}
+           </div>
 
-   <div class="form-group col-md-12 {{ $errors->has('title') ? ' has-error' : '' }}">
-       {!! Form::label('title','Post title', []) !!}
-   	 {!! Form::text('title',null, ['class'=>"form-control",'value'=>old('title')]) !!}
-   </div>
-     <div class="form-group col-md-6 {{ $errors->has('slug') ? ' has-error' : '' }}">
-       {!! Form::label('slug','Post slug', []) !!}
-     {!! Form::text('slug',null, ['class'=>"form-control",'value'=>old('slug')]) !!}
-   </div>
+            <div class="form-group col-md-6">
+               {!! Form::label('category','Select Category for Post', []) !!}
+           	 {!! Form::select('category_id',$categories,'', ['placeholder' => 'Pick a category...','class'=>'form-control']) !!}
+           </div>
 
-    <div class="form-group col-md-6">
-       {!! Form::label('category','Select Category for Post', []) !!}
-   	 {!! Form::select('category_id',$categories,'', ['placeholder' => 'Pick a category...','class'=>'form-control']) !!}
-   </div>
+            <div class=" col-md-6">
+               {!! Form::label('photo_id','Select a Photo', ['class'=>'btn btn-info']) !!}
+           	 {!! Form::file('photo_id', ['class'=>'form-control']) !!}
+           </div>
 
-    <div class=" col-md-6">
-       {!! Form::label('photo_id','Select a Photo', ['class'=>'btn btn-info']) !!}
-   	 {!! Form::file('photo_id', ['class'=>'form-control']) !!}
-   </div>
-
-    <div class="form-group col-md-12 {{ $errors->has('body') ? ' has-error' : '' }}">
-       {!! Form::label('body','Post body', []) !!}
-     {!! Form::textarea('body',null,['class'=>'form-control','value'=>old('body'),'rows'=>5]) !!}
-   </div>
+            <div class="form-group col-md-12 {{ $errors->has('body') ? ' has-error' : '' }}">
+               {!! Form::label('body','Post body', []) !!}
+             {!! Form::textarea('body',null,['class'=>'form-control','value'=>old('body'),'id'=>'textarea','rows'=>15]) !!}
+           </div>
 
 
-    <div class="form-group col-md-12">
-   	 {!! Form::submit('submit', ['class'=>'btn btn-primary']) !!}
-   </div>
-   
+            <div class="form-group col-md-12">
+           	 {!! Form::submit('submit', ['class'=>'btn btn-primary']) !!}
+           </div>
+           
 
- {!! Form::close() !!}
+     {!! Form::close() !!}
 
  </div>
 @endsection

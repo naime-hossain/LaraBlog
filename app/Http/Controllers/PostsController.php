@@ -16,6 +16,8 @@ class PostsController extends Controller
 {
 
     public function __construct(){
+
+        //create and userPosts method is secured via author midleware,others are public
         $this->middleware('author')->except(
             ['show',
             'index',
@@ -24,17 +26,17 @@ class PostsController extends Controller
             'categoryArchive'
           
              ]);
-        // $this->middleware('subscriber')->only(['create','edit']);
+       
     }
     /**
-     * Display a listing of the resource.
-     *
+     * Display a listing of  the recent posts .
+     * 10 posts per page
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         //
-        $posts=Post::orderBy('created_at','desc')->paginate(4);
+        $posts=Post::orderBy('created_at','desc')->paginate(10);
         return view('posts.index',compact('posts'));
     }
 
@@ -46,10 +48,10 @@ class PostsController extends Controller
      */
     public function userPosts($name)
     {
-        //
+        //find the user
         $user=User::whereName($name)->firstOrFail();
         if ($user) {
-            # code...
+
         $posts=$user->posts;
         return view('user.index',compact('posts','user'));
 
@@ -60,18 +62,18 @@ class PostsController extends Controller
     }
 
         /**
-     * Display a listing of the specific user posts.
+     * Display a listing of the specific Author posts.
      *@param string $name
      * @return \Illuminate\Http\Response
      */
     public function authorArchive($name)
     {
-        //
+        //find the author by name
         $user=User::whereName($name)->firstOrFail();
      
         if ($user) {
             # code...
-        $posts=$user->posts()->paginate(4);
+        $posts=$user->posts()->paginate(10);
         return view('posts.archive.author',compact('posts','user'));
 
         }else{
@@ -82,7 +84,7 @@ class PostsController extends Controller
 
            /**
      * Display a listing of the specific category posts.
-     *@param string $name
+     *@param category name string $name
      * @return \Illuminate\Http\Response
      */
     public function categoryArchive($name)
@@ -90,8 +92,8 @@ class PostsController extends Controller
         //
         $category=Category::whereName($name)->firstOrFail();
         if ($category) {
-            # code...
-        $posts=$category->posts()->paginate(4);
+            
+        $posts=$category->posts()->paginate(10);
         return view('posts.archive.category',compact('posts','category'));
 
         }else{
@@ -106,12 +108,10 @@ class PostsController extends Controller
      */
     public function timeArchive()
     {
-        //
-       
-        // $posts=Post::orderBy('id','desc')->get();
+        
         $posts=Post::latest();
        if ($posts) {
-           # code...
+           
       
        if ( $month=request('month')) {
            $posts->whereMonth('created_at', Carbon::parse($month)->month);
@@ -121,9 +121,6 @@ class PostsController extends Controller
        }
 
          
-       // if ( $month=request('month') || $year=request('year')) {
-       //     $posts->whereMonth('created_at', Carbon::parse($month)->month)->whereYear('created_at', Carbon::parse($year)->year);
-       // }
        $posts=$posts->get();
 
    return view('posts.archive.time',compact('posts','month','year'));
@@ -142,31 +139,34 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
-          $categories=Category::pluck('name','id')->all();
+        //list sll cstegories by name and id
+        $categories=Category::pluck('name','id')->all();
         return view('posts.create',compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\PostCreateRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(PostCreateRequest $request)
     {
         
         $input=$request->all();
+        //there is no category in datbase then create a uncategorized category
     if ($request->category_id==0) {
-        # code...
+       
         $category=Category::Create(['name'=>'uncategorized']);
         $input['category_id']=$category->id;
 
       }
+      //if add a new category
         if (trim($request->new_cat)=='') {
             // $input=$request->except('new_cat');
             unset($input['new_cat']);
         }else{
+            //cheeck if the category is already exist or not
             $existing_cat=Category::whereName($input['new_cat'])->first();
           if ($existing_cat) {
               # code...
@@ -180,6 +180,7 @@ class PostsController extends Controller
          }
 
         $user=Auth::user();
+        //upload image using intervention image
              if ($file=$request->file('photo_id')) {
             # code...
              $filename= $user->name.rand(0,time()).$file->getClientOriginalName();
@@ -206,7 +207,7 @@ class PostsController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified post.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -219,7 +220,7 @@ class PostsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified post.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -272,13 +273,13 @@ class PostsController extends Controller
       
        
        $filename = rand(0,time()).$file->getClientOriginalName();
-       //remove old history
+       //remove old history if new image select
           if ($post->photo_id) {
               # code...
         File::delete('images/'.$post->photo->image);
         File::delete('images/thumbnails/'.$post->photo->image);
         
-        // $old_photo=Photo::find($post->photo_id)->delete();
+        
           }
 
           //create new photo
@@ -313,29 +314,31 @@ class PostsController extends Controller
     public function destroy($id)
     {
         //
-     $post=Post::findOrFail($id);
-          $user_id=Auth::user()->id;
-                    //check the post is belong to logedin user or not
-                    if ($user_id==$post->user_id)
-                     {
-                      if ($post)
-                             {
-                                File::delete('images/'.$post->photo->image);
-                                File::delete('images/thumbnails/'.$post->photo->image);
-                                $old_photo=Photo::find($post->photo_id)->delete();
-                                $post_delete=$post->delete();
-                                return back()->with('message', 'post  deleted succefully');
+$post=Post::findOrFail($id);
+$user_id=Auth::user()->id;
+    //check the post is belong to logedin user or not
+    if ($user_id==$post->user_id)
+     {
+      if ($post)
+             {
+                File::delete('images/'.$post->photo->image);
+                File::delete('images/thumbnails/'.$post->photo->image);
+                $old_photo=Photo::find($post->photo_id)->delete();
+                $post_delete=$post->delete();
+                return back()->with('message', 'post  deleted succefully');
 
-                              }
-                    }
-                    else{
-                       return redirect(route('user.posts',Auth::user()->name))->with('message', 'you are not allowed to edit this post');;
-                    }
+              }
+    }
+    else{
+       return redirect(route('user.posts',Auth::user()->name))->with('message', 'you are not allowed to edit this post');;
+    }
 
         
 
 
 
     }
+
+    
     }
 

@@ -7,28 +7,30 @@
   </div>
 
  <div class="col-md-8 col-offset-2">
- @if ($errors->count()>0)
-  @include('alert.error')
-@endif
-   @if(Session::has('message'))
-        @include('alert.success')
-    @endif
+     {{-- display error/success alert if any --}}
+     @if ($errors->count()>0)
+      @include('alert.error')
+     @endif
+       @if(Session::has('message'))
+            @include('alert.success')
+       @endif
 
+    {{-- form to create category --}}
+     {!! Form::open(['action'=>'AdminCategoriesController@store','method'=>'post']) !!}
 
- {!! Form::open(['action'=>'AdminCategoriesController@store','method'=>'post']) !!}
+           <div class="form-group col-md-12 {{ $errors->has('name') ? ' has-error' : '' }}">
+             {!! Form::label('name','Category name', []) !!}
+             {!! Form::text('name',null, ['class'=>"form-control",'value'=>old('name')]) !!}
+           </div>
 
-   <div class="form-group col-md-12 {{ $errors->has('name') ? ' has-error' : '' }}">
-     {!! Form::label('name','Category name', []) !!}
-     {!! Form::text('name',null, ['class'=>"form-control",'value'=>old('name')]) !!}
-   </div>
+           
+            <div class="form-group col-md-12">
+             {!! Form::submit('Create', ['class'=>'btn btn-primary']) !!}
+           </div>
+           
 
-   
-    <div class="form-group col-md-12">
-     {!! Form::submit('Create', ['class'=>'btn btn-primary']) !!}
-   </div>
-   
-
- {!! Form::close() !!}
+     {!! Form::close() !!}
+     {{-- end of form --}}
 
  </div>
 @endsection

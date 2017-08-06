@@ -4,9 +4,8 @@
     <h1>Login Form</h1>
 @endsection
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+
+    <div class="col-md-8 col-md-offset-2">
          @if ($errors->count()>0)
           @include('alert.error')
         @endif
@@ -68,10 +67,12 @@
                                 </a>
                             </div>
                         </div>
-                    </form>
+                   </form>
+                    {{-- end of login form --}}
                 </div>
+                {{-- end of panel body --}}
             </div>
+            {{-- end of panel --}}
         </div>
-    </div>
-</div>
-@endsection
+ {{-- end of col --}}
+ @endsection

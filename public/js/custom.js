@@ -13,6 +13,8 @@
               $("html").niceScroll({
                cursorcolor:"#002c53"
         });
+
+        // js for editor
       var editor_config = {
     path_absolute : "/",
     selector: "#textarea",

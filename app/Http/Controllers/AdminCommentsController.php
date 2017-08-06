@@ -7,7 +7,7 @@ use App\Comment;
 class AdminCommentsController extends Controller
 {
      /**
-     * Display a listing of the resource.
+     * Display a listing of all the Comments.
      *
      * @return \Illuminate\Http\Response
      */
@@ -18,7 +18,7 @@ class AdminCommentsController extends Controller
         return view('admin.comments.index',compact('comments'));
     }
    /**
-     * Remove the specified resource from storage.
+     * Remove the specified Comment from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

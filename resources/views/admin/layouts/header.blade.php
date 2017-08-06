@@ -3,24 +3,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     @php
-   //change the application name
+    {{-- change the app name from settings database --}}
+    @php
+ 
       if ($settings) {
            config(['app.name' =>$settings->site_name]);
-      }
-      
-   
-      
+      } 
    @endphp
-     <title>@yield('title', config('app.name', 'Shoshi'))</title>
+     <title>@yield('title', config('app.name', 'Larablog'))</title>
     <!-- Core CSS - Include with every page -->
     <link href="/css/app_core.css" rel="stylesheet" />
     <link href="/css/font-awesome.min.css" rel="stylesheet" />
     
     <link href="/admin_assets/css/style.css" rel="stylesheet" />
     <link href="/admin_assets/css/main-style.css" rel="stylesheet" />
-    <!-- Page-Level CSS -->
-    
+ 
     <link href="/css/material-kit.css" rel="stylesheet"/>
     <link href="/admin_assets/css/admin.css" rel="stylesheet" />
     <link rel="icon" href="/images/laravel-icon.png" type="image" sizes="16x16">
@@ -31,7 +28,7 @@
     <div id="wrapper">
       <div class="container">
           <div class="row">
-              <div class="col-md-12">
+             <div class="col-md-12">
                                  <!-- navbar top -->
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
             <!-- navbar-header -->
@@ -44,7 +41,7 @@
                 </button>
                 <a class="navbar-brand fa-2x" href="/">
                     {{-- <img src="/admin/img/logo.png" alt="" /> --}}
-                     {{ config('app.name', 'shoshi') }}
+                     {{ config('app.name', 'Larablog') }}
                 </a>
             </div>
             <!-- end navbar-header -->
@@ -100,12 +97,10 @@
                         <!-- user image section-->
                         <div class="user-section">
                             <div class="user-section-inner">
-                                <img class="img-rounded img-raised img-responsive" src="/images/{{  Auth::user()->photo?Auth::user()->photo->image:'placeholder' }}" alt="">
+                            {{-- admin profile pic --}}
+                             <img class="img-rounded img-raised img-responsive" src="/images/{{  Auth::user()->photo?Auth::user()->photo->image:'placeholder' }}" alt="">
                             </div>
-                         {{--    <div class="user-info">
-                                <div>{{ Auth::user()->name }}</strong></div>
-                             
-                            </div> --}}
+                      
                         </div>
                         <!--end user image section-->
                     </li>
