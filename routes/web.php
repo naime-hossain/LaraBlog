@@ -37,7 +37,7 @@ Route::post('/install','InstallController@install');
 
 Route::group(['prefix' => 'admin','middleware'=>'admin'], function() {
     //Route for admin home page
-    Route::get('/','AdminController@index');
+    Route::get('/','AdminController@index')->name('admin');
 // Routes for managing the users form admin panel
     Route::resource('/users','AdminUsersController');
  // Routes for managing the posts from admin panel

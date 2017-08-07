@@ -12,9 +12,7 @@
       if ($settings) {
            config(['app.name' =>$settings->site_name]);
       }
-      // print_r(config('database')) ;
-      //get the databse name
-     // echo Config::get('database.connections.'.Config::get('database.default').'.database');
+   
 
       
    
@@ -55,53 +53,53 @@
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-                             @php
-                                $url=url()->current();
-                             @endphp
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                         <li class="{{ $url==route('home')?'active':'' }}"><a href="{{route('home')}}" title="">home</a></li>
-                        @if (Auth::check())
-                                 <li class="dropdown {{ $url==route('user.show',Auth::user()->name)||$url==route('user.posts',Auth::user()->name)?'active':'' }}">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                <ul class="nav navbar-nav">
+                    &nbsp;
+                </ul>
+                         @php
+                            $url=url()->current();
+                         @endphp
+                <!-- Right Side Of Navbar -->
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Authentication Links -->
+                     <li class="{{ $url==route('home')?'active':'' }}"><a href="{{route('home')}}" title="">home</a></li>
+                    @if (Auth::check())
+                             <li class="dropdown {{ $url==route('user.show',Auth::user()->name)||$url==route('user.posts',Auth::user()->name)?'active':'' }}">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
 
-                                <ul class="dropdown-menu" role="menu">
-                             
-                                         <li><a href="{{ route('user.show',Auth::user()->name) }}" title="">Profile</a></li>
-                                         
-                                         <li><a href="{{ route('user.posts',Auth::user()->name) }}" title="">All posts</a></li>
-                                        <li>
-                                            <a href="{{ route('logout') }}"
-                                                onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                                Logout
-                                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                         
+                                     <li><a href="{{ route('user.show',Auth::user()->name) }}" title="">Profile</a></li>
+                                     
+                                     <li><a href="{{ route('user.posts',Auth::user()->name) }}" title="">All posts</a></li>
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
 
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                {{ csrf_field() }}
-                                            </form>
-                                     </li>
-                                </ul>
-                            </li>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                 </li>
+                            </ul>
+                        </li>
                            {{--  <li><a href="/home" title="">home</a></li> --}}
 
 
                             @if (Auth::user()->isadmin())
                                 {{-- expr --}}
-                            <li><a href="/admin" title="">admin</a></li>
+                            <li><a href="{{ route('admin') }}" title="">admin</a></li>
 
                             @endif
 
                                @if (Auth::user()->isactive())
                              @if (Auth::user()->isauthor() || Auth::user()->isadmin())
                                 {{-- expr --}}
-                            <li class="{{ $url==route('posts.create')?'active':'' }}"><a href="/posts/create" title="">create post</a></li>
+                            <li class="{{ $url==route('posts.create')?'active':'' }}"><a href="{{ route('posts.create') }}" title="">create post</a></li>
 
                             @endif
                                @endif
