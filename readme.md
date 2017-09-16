@@ -2,7 +2,7 @@
 
 ## About this application
 
-This application is created by Naime Hossain Bhuiyan. This is a s <br>
+This application is created by Naime Hossain Bhuiyan. <br>
 ##### Framework: Laravel 5.4
 ##### Language : PHP 5.7
 
